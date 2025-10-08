@@ -81,8 +81,6 @@ function Estructura() {
             <GroupsIcon />
           </Link>
 
-
-
           {/* Otros enlaces/iconos de la barra lateral izquierda */}
         </aside>
 
