@@ -1,1 +1,548 @@
-@import "tailwindcss";
+/* Variables de color ajustadas para un look más "neón" */
+:root {
+    --color-bg-dark: #0f121d;
+    /* Fondo principal muy oscuro (casi negro) */
+    --color-bg-panel: #141721;
+    /* Fondo de paneles (header, sidebars) */
+    --color-bg-card: #1e2130;
+    /* Fondo de tarjetas (game area, bet controls) */
+    --color-neón: #00c6ff;
+    /* Azul cian brillante para acentos */
+    --color-text-light: #ffffff;
+    --color-text-secondary: #9aa0b0;
+    --color-success: #32cd32;
+    /* Verde para ganancias */
+    --color-button-primary: #007bff;
+    /* Azul estándar para el botón principal */
+}
+
+/* Base y tipografía */
+body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* ==================== 1. CONTENEDOR Y LAYOUT GRID ==================== */
+.container-body {
+    display: grid;
+    /* Cabecera (60px) y el resto del contenido (1fr) */
+    grid-template-rows: 65px 1fr;
+    height: 100vh;
+    gap: 10px;
+}
+
+.main-layout {
+    display: grid;
+    /* Sidebar izquierda (Quest/Spin), Contenido Central, Chat */
+    grid-template-columns: 95px 1fr 300px;
+    height: calc(100vh - 60px);
+}
+
+/* ==================== 2. ENCABEZADO (Header) ==================== */
+.header {
+    background-color: var(--color-bg-panel);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo-name {
+    font-size: 1.2em;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--color-neón);
+}
+
+/* Navegación central */
+.header-nav {
+    display: flex;
+    gap: 5px;
+    /* Menos espacio */
+    background-color: #282c3f;
+    /* Fondo sutil para la barra de navegación */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.nav-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 5px 15px;
+    /* Más compacto */
+    border-radius: 3px;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+}
+
+.nav-link.active {
+    color: var(--color-text-light);
+    background-color: #33384c;
+    font-weight: bold;
+}
+
+/* Acciones (Balance y Deposit) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.balance {
+    background-color: #33384c;
+    padding: 8px 12px;
+    border-radius: 5px;
+    /* Menos redondeado */
+    font-weight: bold;
+    color: var(--color-text-light);
+}
+
+.deposit-btn {
+    background: linear-gradient(90deg, #008080, #00a0a0);
+    /* Verde/Azul para "Deposit" */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ==================== 3. SIDEBAR IZQUIERDA ==================== */
+.sidebar-left {
+    background-color: var(--color-bg-panel);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    margin: auto 0px;
+    margin-left: 7px;
+    border-radius: 10px;
+}
+
+.sidebar-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    transition: background-color 0.2s;
+    font-size: 0.75em;
+    gap: 5px;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: all .2s;
+}
+
+.sidebar-link:hover {
+    transform: translateY(-5%);
+    background-color: #282c3f;
+}
+
+.sidebar-link.active {
+    color: var(--color-neón);
+    background-color: #282c3f;
+    /* Borde neón en el lateral izquierdo del botón activo */
+}
+
+/* ==================== 4. CONTENIDO CENTRAL ==================== */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    /* Menos padding */
+    gap: 15px;
+    overflow-y: auto;
+}
+
+/* --- A. Controles de Apuesta Superiores --- */
+.bet-controls-top {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    /* Espacio para la sombra/borde si se añade */
+}
+
+.multiplier-pill {
+    background-color: #1e2130;
+    /* Más oscuro */
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: var(--color-neón);
+    /* Color neón para los valores */
+    font-weight: 600;
+    min-width: 45px;
+    /* Asegura que se vea bien */
+    text-align: center;
+}
+
+
+
+.current-payout {
+    position: absolute;
+    z-index: 5;
+    text-align: center;
+}
+
+.payout-value {
+    font-size: 4.5em;
+    /* Un poco más grande */
+    font-weight: 900;
+    color: var(--color-neón);
+    /* Efecto neón más fuerte */
+    text-shadow: 0 0 15px rgba(0, 198, 255, 0.7), 0 0 5px rgba(0, 198, 255, 0.4);
+}
+
+.payout-label {
+    display: block;
+    font-size: 1em;
+    color: var(--color-text-secondary);
+    margin-top: -10px;
+}
+
+.rocket-animation {
+    /* El gráfico y el cohete se simularían aquí */
+    /* ... (requiere imágenes o canvas/svg reales) ... */
+    background: radial-gradient(circle at 50% 100%, rgba(0, 198, 255, 0.3) 0%, transparent 70%);
+}
+
+/* --- C. Controles de Apuesta y Tabla --- */
+.footer-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    min-height: 220px;
+    /* Altura mínima para que coincida con la imagen */
+}
+
+.bet-input-panel {
+    background-color: var(--color-bg-card);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #282c3f;
+}
+
+/* Botones Manual/Auto */
+.bet-mode {
+    display: flex;
+    margin-bottom: 15px;
+    background-color: #282c3f;
+    border-radius: 5px;
+    padding: 3px;
+    /* Más compacto */
+}
+
+.mode-btn {
+    flex-grow: 1;
+    background: none;
+    color: var(--color-text-secondary);
+    border: none;
+    padding: 8px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.mode-btn.active {
+    background-color: var(--color-bg-dark);
+    /* Color más oscuro para el activo */
+    color: var(--color-neón);
+    box-shadow: 0 0 5px rgba(0, 198, 255, 0.1);
+}
+
+.input-group label {
+    font-size: 0.8em;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+.input-with-actions {
+    background-color: #282c3f;
+    border-radius: 3px;
+}
+
+.input-with-actions input {
+    background: none;
+    padding: 10px;
+}
+
+.actions button {
+    font-size: 0.9em;
+    border-left: 1px solid #1e2130;
+}
+
+.actions button.active {
+    background-color: #33384c;
+    color: var(--color-neón);
+}
+
+.place-bet-btn {
+    background-color: var(--color-button-primary);
+    /* Se mantiene azul para contraste */
+    padding: 12px;
+    font-size: 1.1em;
+}
+
+/* Panel de Apuestas en Vivo (Live Bets Panel) */
+.live-bets-panel {
+    background-color: var(--color-bg-card);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #282c3f;
+}
+
+.panel-header {
+    font-size: 1.1em;
+    color: var(--color-text-light);
+    border-bottom: 1px solid #282c3f;
+}
+
+.bet-item {
+    font-size: 0.85em;
+    padding: 6px 0;
+    border-bottom: 1px dashed #282c3f;
+}
+
+.bet-item .player {
+    color: var(--color-text-secondary);
+}
+
+.bet-item .amount {
+    font-weight: bold;
+}
+
+.bet-item .multiplier {
+    color: var(--color-neón);
+    font-weight: 600;
+}
+
+.bet-item.my-bet {
+    background-color: #33384c;
+}
+
+/* ==================== 5. SIDEBAR DERECHA (Chat) ==================== */
+.sidebar-right {
+    background-color: var(--color-bg-panel);
+    border-left: 1px solid #282c3f;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 15px;
+    font-size: 1.1em;
+    border-bottom: 1px solid #282c3f;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 3px 0;
+}
+
+.message .username {
+    font-weight: bold;
+    color: #00ffff;
+    /* Color de chat más brillante */
+    margin-right: 5px;
+}
+
+.message.outgoing .username {
+    color: #4CAF50;
+    /* Verde para el usuario (you) */
+}
+
+.message p {
+    font-size: 0.85em;
+}
+
+.chat-input-area {
+    padding: 10px 15px;
+    border-top: 1px solid #282c3f;
+}
+
+.chat-input-area input {
+    background-color: #282c3f;
+    border-radius: 5px;
+    /* Menos redondeado */
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+.send-btn {
+    background-color: var(--color-button-primary);
+    width: 35px;
+    height: 35px;
+}
+
+
+/* ========================================================= */
+/* === AJUSTES DE RESPONSIVIDAD (MEDIA QUERIES) === */
+/* ========================================================= */
+
+/* --------------------------------------------------------- */
+/* === 1. Dispositivos de Escritorio / Tablets Grandes (> 1024px) === */
+/* El estilo base ya maneja esta distribución. */
+
+/* --------------------------------------------------------- */
+/* === 2. Tablets en Vertical o Pantallas Pequeñas (max-width: 1024px) === */
+@media (max-width: 1024px) {
+
+    /* Redistribución principal */
+    .main-layout {
+        /* Eliminamos la sidebar izquierda y reducimos el ancho del chat. */
+        grid-template-columns: 1fr 250px;
+    }
+
+    /* Ocultamos la sidebar de navegación izquierda, que es menos esencial en el móvil. */
+    .sidebar-left {
+        display: none;
+    }
+
+    /* La navegación principal del encabezado debe ser más compacta */
+    .header-nav {
+        gap: 0;
+        padding: 3px;
+    }
+
+    .nav-link {
+        padding: 5px 10px;
+        font-size: 0.85em;
+    }
+
+    /* Las acciones de depósito y balance también se compactan */
+    .deposit-btn span,
+    .balance span {
+        font-size: 0.9em;
+    }
+
+    /* Reducimos el espacio entre los paneles de control */
+    .footer-panels {
+        gap: 10px;
+    }
+
+    /* El chat se hace más compacto */
+    .sidebar-right {
+        /* Aseguramos que el chat siempre tenga un scroll interno si es necesario */
+        overflow-y: auto;
+    }
+}
+
+/* --------------------------------------------------------- */
+/* === 3. Teléfonos Móviles (max-width: 768px) === */
+@media (max-width: 768px) {
+
+    /* El encabezado oculta elementos menos importantes */
+    .header {
+        padding: 0 10px;
+    }
+
+    /* Ocultamos la navegación principal para ahorrar espacio en el encabezado */
+    .header-nav {
+        display: none;
+    }
+
+    /* La distribución principal ahora es una sola columna vertical */
+    .container-body {
+        /* No hay necesidad de header grid, pero lo mantenemos si es necesario*/
+        grid-template-rows: 50px 1fr;
+    }
+
+    .main-layout {
+        /* El contenido central (1fr) se pone arriba, y el chat (1fr) debajo. */
+        grid-template-columns: 1fr;
+        /* Reordenamos: Main Content (1fr) y Chat (auto, para que ocupe menos) */
+        grid-template-rows: 1fr auto;
+    }
+
+    /* La sidebar de la izquierda ya está oculta, pero aseguramos que el grid lo ignore */
+    .sidebar-left {
+        display: none;
+    }
+
+    /* El footer ahora apila los controles de apuesta y la tabla de jugadores */
+    .footer-panels {
+        grid-template-columns: 1fr;
+        /* Una sola columna */
+    }
+
+    /* El panel de chat se convierte en una sección que ocupa el ancho completo y va al final */
+    .sidebar-right {
+        /* Ocupa toda la parte de abajo de la pantalla en vista móvil. */
+        width: 100%;
+        min-height: 250px;
+        /* Altura mínima para que el chat sea visible */
+        border-left: none;
+        /* Quitamos el borde lateral */
+        grid-row: 2;
+        /* Movemos el chat a la segunda fila del main-layout */
+    }
+
+
+    .payout-value {
+        font-size: 3em;
+        /* Reducimos el texto principal */
+    }
+}
+
+/* --------------------------------------------------------- */
+/* === 4. Teléfonos Móviles Muy Pequeños (max-width: 500px) === */
+@media (max-width: 500px) {
+
+    /* Header: Fusionamos balance y depósito en un solo botón/icono si es necesario */
+    .header-actions {
+        gap: 5px;
+    }
+
+    .balance {
+        /* Ocultar el texto del balance para solo mostrar el número */
+        padding: 8px;
+    }
+
+    .deposit-btn {
+        /* Ocultar el texto "Deposit" y dejar solo el icono */
+        padding: 8px;
+        font-size: 0;
+        /* Oculta el texto */
+        width: 40px;
+        /* Ancho fijo para el icono */
+        justify-content: center;
+    }
+
+    .deposit-btn svg {
+        font-size: 1.2rem;
+        /* Asegura que el icono sea visible */
+    }
+
+    /* Los controles de apuesta */
+    .bet-input-panel {
+        padding: 15px;
+    }
+
+    /* El chat se hace más pequeño */
+    .sidebar-right {
+        min-height: 200px;
+    }
+}
