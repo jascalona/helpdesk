@@ -86,103 +86,10 @@ function Estructura() {
 
         {/* === 2.2. ÁREA CENTRAL (Main Content) === */}
         <main className="main-content">
-
-
-
-
-          {/* --- C. Controles de Apuesta Inferiores y Tabla de Jugadores --- */}
-          <div className="footer-panels">
-
-            {/* Panel Izquierdo: Controles de Apuesta */}
-            <div className="bet-input-panel">
-              <div className="bet-mode">
-                <button className="mode-btn active">Manual</button>
-                <button className="mode-btn">Auto</button>
-              </div>
-
-              <div className="input-group">
-                <label>Bet Amount</label>
-                <div className="input-with-actions">
-                  <input type="number" value="3,584" readOnly />
-                  <div className="actions">
-                    <button>1.2x</button>
-                    <button className="active">2.9x</button>
-                    <button>Max</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="input-group">
-                <label>Auto Cashout</label>
-                <div className="input-with-actions">
-                  <input type="number" value="100.00x" readOnly />
-                  <div className="actions">
-                    <button>1.2x</button>
-                    <button>2.9x</button>
-                    <button>10.00x</button>
-                  </div>
-                </div>
-              </div>
-
-              <button className="place-bet-btn">Place Bet</button>
-            </div>
-
-            {/* Panel Derecho: Tabla de Jugadores */}
-            <div className="live-bets-panel">
-              <div className="panel-header">
-                <span>2.7K Players</span>
-                <span>$7,242.95</span>
-              </div>
-              <ul className="bet-list">
-                {/* Ejemplo de un elemento de la lista */}
-                <li className="bet-item">
-                  <span className="player">Zbnaw145</span>
-                  <span className="multiplier">2x</span>
-                  <span className="amount">$80000</span>
-                </li>
-                <li className="bet-item">
-                  <span className="player">ddfjuek95</span>
-                  <span className="multiplier">1.2x</span>
-                  <span className="amount">$76000</span>
-                </li>
-                <li className="bet-item my-bet">
-                  <span className="player">dejkal68 (you)</span>
-                  <span className="multiplier green">.006%</span> {/* Este parece ser un valor de ganancia en el momento */}
-                  <span className="amount">$70000</span>
-                </li>
-                {/* Más items... */}
-              </ul>
-            </div>
-
-          </div>
+          
         </main>
 
-        {/* === 2.3. BARRA LATERAL DERECHA (Chat) === */}
-        <aside className="sidebar-right chat-panel">
-          <div className="chat-header">
-            <span>Chat</span>
-          </div>
-          <div className="chat-messages">
-            {/* Mensajes de Chat */}
-            <div className="message incoming">
-              <span className="username">Zbnaw145</span>
-              <span className="time">12:00</span>
-              <p>khahayak 10 year kb b mana all ko request ki the</p>
-            </div>
-            <div className="message outgoing">
-              <span className="username">dejkal68 (you)</span>
-              <span className="time">12:04</span>
-              <p>mujhe bro</p>
-            </div>
-            {/* ... más mensajes */}
-          </div>
-          <div className="chat-input-area">
-            <input type="text" placeholder="Type a message..." />
-            <button className="send-btn">
-              <SendIcon fontSize="small" />
-            </button>
-          </div>
-        </aside>
+
 
       </div>
     </div>

@@ -38,7 +38,7 @@ body {
 .main-layout {
     display: grid;
     /* Sidebar izquierda (Quest/Spin), Contenido Central, Chat */
-    grid-template-columns: 95px 1fr 300px;
+    grid-template-columns: 95px 1fr 0px;
     height: calc(100vh - 60px);
 }
 
@@ -224,65 +224,6 @@ body {
     background: radial-gradient(circle at 50% 100%, rgba(0, 198, 255, 0.3) 0%, transparent 70%);
 }
 
-/* --- C. Controles de Apuesta y Tabla --- */
-.footer-panels {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    min-height: 220px;
-    /* Altura mínima para que coincida con la imagen */
-}
-
-.bet-input-panel {
-    background-color: var(--color-bg-card);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #282c3f;
-}
-
-/* Botones Manual/Auto */
-.bet-mode {
-    display: flex;
-    margin-bottom: 15px;
-    background-color: #282c3f;
-    border-radius: 5px;
-    padding: 3px;
-    /* Más compacto */
-}
-
-.mode-btn {
-    flex-grow: 1;
-    background: none;
-    color: var(--color-text-secondary);
-    border: none;
-    padding: 8px 10px;
-    border-radius: 3px;
-    font-weight: bold;
-}
-
-.mode-btn.active {
-    background-color: var(--color-bg-dark);
-    /* Color más oscuro para el activo */
-    color: var(--color-neón);
-    box-shadow: 0 0 5px rgba(0, 198, 255, 0.1);
-}
-
-.input-group label {
-    font-size: 0.8em;
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
-}
-
-.input-with-actions {
-    background-color: #282c3f;
-    border-radius: 3px;
-}
-
-.input-with-actions input {
-    background: none;
-    padding: 10px;
-}
-
 .actions button {
     font-size: 0.9em;
     border-left: 1px solid #1e2130;
@@ -413,7 +354,7 @@ body {
     /* Redistribución principal */
     .main-layout {
         /* Eliminamos la sidebar izquierda y reducimos el ancho del chat. */
-        grid-template-columns: 1fr 250px;
+        grid-template-columns: 1fr ;
     }
 
     /* Ocultamos la sidebar de navegación izquierda, que es menos esencial en el móvil. */
@@ -438,10 +379,6 @@ body {
         font-size: 0.9em;
     }
 
-    /* Reducimos el espacio entre los paneles de control */
-    .footer-panels {
-        gap: 10px;
-    }
 
     /* El chat se hace más compacto */
     .sidebar-right {
@@ -482,11 +419,6 @@ body {
         display: none;
     }
 
-    /* El footer ahora apila los controles de apuesta y la tabla de jugadores */
-    .footer-panels {
-        grid-template-columns: 1fr;
-        /* Una sola columna */
-    }
 
     /* El panel de chat se convierte en una sección que ocupa el ancho completo y va al final */
     .sidebar-right {
@@ -534,11 +466,6 @@ body {
     .deposit-btn svg {
         font-size: 1.2rem;
         /* Asegura que el icono sea visible */
-    }
-
-    /* Los controles de apuesta */
-    .bet-input-panel {
-        padding: 15px;
     }
 
     /* El chat se hace más pequeño */
