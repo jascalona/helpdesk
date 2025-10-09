@@ -1,475 +1,365 @@
-/* Variables de color ajustadas para un look más "neón" */
 :root {
-    --color-bg-dark: #0f121d;
-    /* Fondo principal muy oscuro (casi negro) */
-    --color-bg-panel: #141721;
-    /* Fondo de paneles (header, sidebars) */
-    --color-bg-card: #1e2130;
-    /* Fondo de tarjetas (game area, bet controls) */
-    --color-neón: #00c6ff;
-    /* Azul cian brillante para acentos */
-    --color-text-light: #ffffff;
-    --color-text-secondary: #9aa0b0;
-    --color-success: #32cd32;
-    /* Verde para ganancias */
-    --color-button-primary: #007bff;
-    /* Azul estándar para el botón principal */
+    --primary-color: #055270; /* Morado principal */
+    --secondary-color: #f0f0f7; /* Fondo claro */
+    --text-color-dark: #011218;
+    --text-color-light: #777;
+    --border-color: #eee;
+    --card-bg: #fff;
+    --sidebar-bg: #fff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Base y tipografía */
 body {
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-light);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
+    background-color: var(--secondary-color);
+    color: var(--text-color-dark);
+    overflow: hidden; 
 }
 
-/* ==================== 1. CONTENEDOR Y LAYOUT GRID ==================== */
-.container-body {
-    display: grid;
-    /* Cabecera (60px) y el resto del contenido (1fr) */
-    grid-template-rows: 65px 1fr;
-    height: 100vh;
-    gap: 10px;
-}
-
-.main-layout {
-    display: grid;
-    /* Sidebar izquierda (Quest/Spin), Contenido Central, Chat */
-    grid-template-columns: 95px 1fr 0px;
-    height: calc(100vh - 60px);
-}
-
-/* ==================== 2. ENCABEZADO (Header) ==================== */
-.header {
-    background-color: var(--color-bg-panel);
+.dashboard-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+    height: 100vh; 
 }
 
-.logo-name {
-    font-size: 1.2em;
-    font-weight: 900;
-    letter-spacing: 1px;
-    color: var(--color-neón);
-}
-
-/* Navegación central */
-.header-nav {
-    display: flex;
-    gap: 5px;
-    /* Menos espacio */
-    background-color: #282c3f;
-    /* Fondo sutil para la barra de navegación */
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.nav-link {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    padding: 5px 15px;
-    /* Más compacto */
-    border-radius: 3px;
-    transition: background-color 0.2s, color 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.9em;
-}
-
-.nav-link.active {
-    color: var(--color-text-light);
-    background-color: #33384c;
-    font-weight: bold;
-}
-
-/* Acciones (Balance y Deposit) */
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.balance {
-    background-color: #33384c;
-    padding: 8px 12px;
-    border-radius: 5px;
-    /* Menos redondeado */
-    font-weight: bold;
-    color: var(--color-text-light);
-}
-
-.deposit-btn {
-    background: linear-gradient(90deg, #008080, #00a0a0);
-    /* Verde/Azul para "Deposit" */
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* ==================== 3. SIDEBAR IZQUIERDA ==================== */
-.sidebar-left {
-    background-color: var(--color-bg-panel);
-    padding: 10px 0;
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    box-shadow: var(--shadow);
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 80%;
-    margin: auto 0px;
-    margin-left: 7px;
-    border-radius: 10px;
+    /* El sidebar ya está fijo y ocupa 100vh gracias a .dashboard-container */
+    /* Si el contenido del sidebar es largo, descomenta la siguiente línea: */
+    /* overflow-y: auto; */
 }
 
-.sidebar-link {
-    color: var(--color-text-secondary);
-    text-decoration: none;
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    /* Permite que el contenido principal tenga scroll */
+    overflow-y: auto;
+    /* Asegura que ocupe la altura restante */
+    height: 100%; 
+}
+
+/* Sidebar */
+.sidebar .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 0 10px 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+.sidebar .logo i {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+.sidebar .logo span {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--text-color-dark);
+}
+
+.sidebar .navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar .navigation li {
+    margin-bottom: 5px;
+}
+.sidebar .navigation a {
+    display: flex;
+    align-items: center; /* CLAVE: Alinea verticalmente el texto y el ícono */
+    padding: 12px;
+    color: var(--text-color-light);
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+.sidebar .navigation a:hover,
+.sidebar .navigation li.active a {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 🚀 AJUSTE PARA ALINEACIÓN Y ESPACIADO DEL ICONO DE MATERIAL UI */
+/* Los íconos de MUI son SVGs. Aplicamos margen a los SVGs dentro de los enlaces. */
+.sidebar .navigation a svg {
+    margin-right: 10px; /* Agrega espacio entre el ícono y el texto */
+    flex-shrink: 0; /* Evita que el ícono se comprima en pantallas pequeñas */
+}
+
+/* El estilo .fas ya no es relevante para los iconos de MUI, pero se mantiene por si usas FontAwesome */
+.sidebar .navigation .fas { 
+    margin-right: 10px;
+}
+
+.sidebar .user-profile {
+    padding: 20px;
+    background-color: var(--secondary-color);
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+.sidebar .user-profile .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar .user-profile .user-info img {
     width: 40px;
     height: 40px;
-    text-align: center;
-    transition: background-color 0.2s;
-    font-size: 0.75em;
-    gap: 5px;
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    margin-bottom: 10px;
-    transition: all .2s;
+    margin-right: 10px;
 }
-
-.sidebar-link:hover {
-    transform: translateY(-5%);
-    background-color: #282c3f;
-}
-
-.sidebar-link.active {
-    color: var(--color-neón);
-    background-color: #282c3f;
-    /* Borde neón en el lateral izquierdo del botón activo */
-}
-
-/* ==================== 4. CONTENIDO CENTRAL ==================== */
-.main-content {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    /* Menos padding */
-    gap: 15px;
-    overflow-y: auto;
-}
-
-/* --- A. Controles de Apuesta Superiores --- */
-.bet-controls-top {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-    /* Espacio para la sombra/borde si se añade */
-}
-
-.multiplier-pill {
-    background-color: #1e2130;
-    /* Más oscuro */
-    padding: 5px 8px;
-    border-radius: 3px;
-    font-size: 0.85em;
-    color: var(--color-neón);
-    /* Color neón para los valores */
-    font-weight: 600;
-    min-width: 45px;
-    /* Asegura que se vea bien */
-    text-align: center;
-}
-
-
-
-.current-payout {
-    position: absolute;
-    z-index: 5;
-    text-align: center;
-}
-
-.payout-value {
-    font-size: 4.5em;
-    /* Un poco más grande */
-    font-weight: 900;
-    color: var(--color-neón);
-    /* Efecto neón más fuerte */
-    text-shadow: 0 0 15px rgba(0, 198, 255, 0.7), 0 0 5px rgba(0, 198, 255, 0.4);
-}
-
-.payout-label {
-    display: block;
-    font-size: 1em;
-    color: var(--color-text-secondary);
-    margin-top: -10px;
-}
-
-.rocket-animation {
-    /* El gráfico y el cohete se simularían aquí */
-    /* ... (requiere imágenes o canvas/svg reales) ... */
-    background: radial-gradient(circle at 50% 100%, rgba(0, 198, 255, 0.3) 0%, transparent 70%);
-}
-
-.actions button {
-    font-size: 0.9em;
-    border-left: 1px solid #1e2130;
-}
-
-.actions button.active {
-    background-color: #33384c;
-    color: var(--color-neón);
-}
-
-.place-bet-btn {
-    background-color: var(--color-button-primary);
-    /* Se mantiene azul para contraste */
-    padding: 12px;
-    font-size: 1.1em;
-}
-
-/* Panel de Apuestas en Vivo (Live Bets Panel) */
-.live-bets-panel {
-    background-color: var(--color-bg-card);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #282c3f;
-}
-
-.panel-header {
-    font-size: 1.1em;
-    color: var(--color-text-light);
-    border-bottom: 1px solid #282c3f;
-}
-
-.bet-item {
-    font-size: 0.85em;
-    padding: 6px 0;
-    border-bottom: 1px dashed #282c3f;
-}
-
-.bet-item .player {
-    color: var(--color-text-secondary);
-}
-
-.bet-item .amount {
+.sidebar .user-profile .user-info span {
     font-weight: bold;
-}
-
-.bet-item .multiplier {
-    color: var(--color-neón);
-    font-weight: 600;
-}
-
-.bet-item.my-bet {
-    background-color: #33384c;
-}
-
-/* ==================== 5. SIDEBAR DERECHA (Chat) ==================== */
-.sidebar-right {
-    background-color: var(--color-bg-panel);
-    border-left: 1px solid #282c3f;
-    display: flex;
-    flex-direction: column;
-}
-
-.chat-header {
-    padding: 15px;
-    font-size: 1.1em;
-    border-bottom: 1px solid #282c3f;
-}
-
-.chat-messages {
     flex-grow: 1;
-    padding: 15px;
-    overflow-y: auto;
+}
+.sidebar .user-profile .user-info button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
 }
 
-.message {
-    margin-bottom: 10px;
-    padding: 3px 0;
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
-
-.message .username {
-    font-weight: bold;
-    color: #00ffff;
-    /* Color de chat más brillante */
-    margin-right: 5px;
-}
-
-.message.outgoing .username {
-    color: #4CAF50;
-    /* Verde para el usuario (you) */
-}
-
-.message p {
-    font-size: 0.85em;
-}
-
-.chat-input-area {
-    padding: 10px 15px;
-    border-top: 1px solid #282c3f;
-}
-
-.chat-input-area input {
-    background-color: #282c3f;
-    border-radius: 5px;
-    /* Menos redondeado */
-    padding: 8px 12px;
+.main-header .breadcrumbs span {
+    color: var(--text-color-light);
     font-size: 0.9em;
 }
-
-.send-btn {
-    background-color: var(--color-button-primary);
-    width: 35px;
-    height: 35px;
+.main-header h1 {
+    margin: 5px 0 0;
+    font-size: 1.8em;
+}
+.main-header .header-actions {
+    display: flex;
+    gap: 15px;
+}
+.main-header .header-actions .fas {
+    font-size: 1.4em;
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+.main-header .user-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 
-/* ========================================================= */
-/* === AJUSTES DE RESPONSIVIDAD (MEDIA QUERIES) === */
-/* ========================================================= */
-
-/* --------------------------------------------------------- */
-/* === 1. Dispositivos de Escritorio / Tablets Grandes (> 1024px) === */
-/* El estilo base ya maneja esta distribución. */
-
-/* --------------------------------------------------------- */
-/* === 2. Tablets en Vertical o Pantallas Pequeñas (max-width: 1024px) === */
-@media (max-width: 1024px) {
-
-    /* Redistribución principal */
-    .main-layout {
-        /* Eliminamos la sidebar izquierda y reducimos el ancho del chat. */
-        grid-template-columns: 1fr ;
-    }
-
-    /* Ocultamos la sidebar de navegación izquierda, que es menos esencial en el móvil. */
-    .sidebar-left {
-        display: none;
-    }
-
-    /* La navegación principal del encabezado debe ser más compacta */
-    .header-nav {
-        gap: 0;
-        padding: 3px;
-    }
-
-    .nav-link {
-        padding: 5px 10px;
-        font-size: 0.85em;
-    }
-
-    /* Las acciones de depósito y balance también se compactan */
-    .deposit-btn span,
-    .balance span {
-        font-size: 0.9em;
-    }
-
-
-    /* El chat se hace más compacto */
-    .sidebar-right {
-        /* Aseguramos que el chat siempre tenga un scroll interno si es necesario */
-        overflow-y: auto;
-    }
+/* Tarjetas Superiores */
+.top-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-/* --------------------------------------------------------- */
-/* === 3. Teléfonos Móviles (max-width: 768px) === */
-@media (max-width: 768px) {
-
-    /* El encabezado oculta elementos menos importantes */
-    .header {
-        padding: 0 10px;
-    }
-
-    /* Ocultamos la navegación principal para ahorrar espacio en el encabezado */
-    .header-nav {
-        display: none;
-    }
-
-    /* La distribución principal ahora es una sola columna vertical */
-    .container-body {
-        /* No hay necesidad de header grid, pero lo mantenemos si es necesario*/
-        grid-template-rows: 50px 1fr;
-    }
-
-    .main-layout {
-        /* El contenido central (1fr) se pone arriba, y el chat (1fr) debajo. */
-        grid-template-columns: 1fr;
-        /* Reordenamos: Main Content (1fr) y Chat (auto, para que ocupe menos) */
-        grid-template-rows: 1fr auto;
-    }
-
-    /* La sidebar de la izquierda ya está oculta, pero aseguramos que el grid lo ignore */
-    .sidebar-left {
-        display: none;
-    }
-
-
-    /* El panel de chat se convierte en una sección que ocupa el ancho completo y va al final */
-    .sidebar-right {
-        /* Ocupa toda la parte de abajo de la pantalla en vista móvil. */
-        width: 100%;
-        min-height: 250px;
-        /* Altura mínima para que el chat sea visible */
-        border-left: none;
-        /* Quitamos el borde lateral */
-        grid-row: 2;
-        /* Movemos el chat a la segunda fila del main-layout */
-    }
-
-
-    .payout-value {
-        font-size: 3em;
-        /* Reducimos el texto principal */
-    }
+.card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card .fas {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.card span {
+    color: var(--text-color-light);
+    font-size: 0.9em;
+}
+.card p {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 5px 0 0;
+}
+.card button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    cursor: pointer;
+    align-self: flex-end;
 }
 
-/* --------------------------------------------------------- */
-/* === 4. Teléfonos Móviles Muy Pequeños (max-width: 500px) === */
-@media (max-width: 500px) {
+/* Sección del Gráfico */
+.graph-section {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+.graph-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.graph-header span {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.graph-header p {
+    color: var(--text-color-light);
+    font-size: 0.9em;
+}
+.chart-container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9fb;
+    border-radius: 10px;
+}
+.chart-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 
-    /* Header: Fusionamos balance y depósito en un solo botón/icono si es necesario */
-    .header-actions {
-        gap: 5px;
-    }
+/* Sección de la Tabla */
+.table-section {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+.table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.table-section th, .table-section td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+.table-section th {
+    color: var(--text-color-light);
+    font-size: 0.9em;
+    font-weight: normal;
+}
+.table-section td {
+    font-size: 0.95em;
+}
+.table-section tbody tr:last-child td {
+    border-bottom: none;
+}
+.table-section td:last-child {
+    text-align: right;
+}
 
-    .balance {
-        /* Ocultar el texto del balance para solo mostrar el número */
-        padding: 8px;
-    }
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: var(--text-color-light);
+}
+.pagination-controls button {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.pagination-controls button:hover {
+    background-color: var(--border-color);
+}
 
-    .deposit-btn {
-        /* Ocultar el texto "Deposit" y dejar solo el icono */
-        padding: 8px;
-        font-size: 0;
-        /* Oculta el texto */
-        width: 40px;
-        /* Ancho fijo para el icono */
-        justify-content: center;
-    }
+/*BTN HOVER*/
+/* Contenedor principal para el botón y el menú */
+.contenedor-btn-hover {
+    position: relative; /* Es crucial para posicionar el menú *absolutamente* */
+    display: inline-block; /* Permite que el contenedor se ajuste al botón */
+}
 
-    .deposit-btn svg {
-        font-size: 1.2rem;
-        /* Asegura que el icono sea visible */
-    }
+/* Estilo del botón (opcional, ajusta a tu gusto) */
+.setting-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: flex; /* Asegura que el ícono esté centrado si hay padding */
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Color del icono */
+}
 
-    /* El chat se hace más pequeño */
-    .sidebar-right {
-        min-height: 200px;
-    }
+.setting-button:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Ligero hover en el botón */
+}
+
+/* Estilos del menú desplegable */
+.dropdown-menu {
+    /* Posicionamiento: aparecerá debajo del botón */
+    position: absolute; 
+    top: 100%; /* Justo debajo del contenedor principal */
+    left: 50%; /* Centra horizontalmente, luego ajusta con transform */
+    transform: translateX(-50%); 
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+
+    /* Estilo visual del menú, similar al de la imagen */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    min-width: 400px; /* Ancho suficiente para dos columnas */
+    display: flex; /* Para las columnas del menú */
+    gap: 40px; /* Espacio entre las columnas */
+
+    /* Puedes usar este estilo si prefieres posicionarlo fijo a un lado */
+    /* right: 0; 
+    left: auto; 
+    transform: none; */
+}
+
+/* Estilos para cada columna del menú */
+.menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espacio entre los elementos de una columna */
+    min-width: 150px; /* Ancho mínimo para cada columna */
+}
+
+/* Estilos para cada opción (ítem) del menú */
+.menu-item {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: #333; /* Color de texto predeterminado */
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 16px;
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0; /* Fondo al pasar el cursor sobre la opción */
+    color: #000;
 }
