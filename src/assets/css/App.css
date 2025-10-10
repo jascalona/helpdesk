@@ -1,12 +1,13 @@
 :root {
     --primary-color: #055270; /* Morado principal */
     --secondary-color: #f0f0f7; /* Fondo claro */
-    --text-color-dark: #011218;
+    --text-color-dark: #444444;
     --text-color-light: #777;
     --border-color: #eee;
     --card-bg: #fff;
     --sidebar-bg: #fff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --bg-hover: #BBFCFC;
 }
 
 body {
@@ -29,9 +30,6 @@ body {
     padding: 20px 0;
     display: flex;
     flex-direction: column;
-    /* El sidebar ya está fijo y ocupa 100vh gracias a .dashboard-container */
-    /* Si el contenido del sidebar es largo, descomenta la siguiente línea: */
-    /* overflow-y: auto; */
 }
 
 .main-content {
@@ -87,14 +85,11 @@ body {
     color: gray;
 }
 
-/* 🚀 AJUSTE PARA ALINEACIÓN Y ESPACIADO DEL ICONO DE MATERIAL UI */
-/* Los íconos de MUI son SVGs. Aplicamos margen a los SVGs dentro de los enlaces. */
 .sidebar .navigation a svg {
-    margin-right: 10px; /* Agrega espacio entre el ícono y el texto */
-    flex-shrink: 0; /* Evita que el ícono se comprima en pantallas pequeñas */
+    margin-right: 10px; 
+    flex-shrink: 0; 
 }
 
-/* El estilo .fas ya no es relevante para los iconos de MUI, pero se mantiene por si usas FontAwesome */
 .sidebar .navigation .fas { 
     margin-right: 10px;
 }

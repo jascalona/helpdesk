@@ -1,0 +1,316 @@
+.referral-program-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.referral-header {
+    margin-bottom: 30px;
+}
+
+.referral-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.referral-header p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background-color: #f7f9fc;
+    border: 1px solid #e0e6ed;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+
+.content-sections {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Ajusta la proporción si es necesario */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.referral-code-section,
+.how-to-use-section {
+    background-color: #f7f9fc;
+    border: 1px solid #e0e6ed;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.referral-code-section h3,
+.how-to-use-section h3,
+.other-programs h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.referral-code-section p,
+.how-to-use-section p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.code-info {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.generated-date {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+}
+
+.code-input-group {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.referral-code-input {
+    flex-grow: 1;
+    border: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    outline: none;
+}
+
+.copy-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-left: 1px solid #0069d9;
+}
+
+.copy-button:hover {
+    background-color: #0056b3;
+}
+
+.no-codes-message,
+.contact-message {
+    font-size: 13px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.step-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #e0f2fe; /* Color de fondo del icono */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto;
+    color: #007bff; /* Color del icono SVG */
+}
+
+.step-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.step-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.step-reward {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.other-programs h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.program-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.program-card {
+    background-color: #f7f9fc;
+    border: 1px solid #e0e6ed;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.program-image {
+    width: 100%;
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover;
+    border-bottom: 1px solid #e0e6ed;
+}
+
+.program-card p {
+    padding: 15px;
+    font-size: 15px;
+    color: #555;
+    flex-grow: 1; /* Permite que el párrafo crezca y empuje el botón hacia abajo */
+}
+
+.read-more {
+    display: block;
+    padding: 15px;
+    text-align: right;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-top: 1px solid #e0e6ed;
+    transition: color 0.2s ease;
+}
+
+.read-more:hover {
+    color: #0056b3;
+}
+
+.rocket-card {
+    background-color: #e0f7fa; /* Un color de fondo más claro para el cohete */
+    border: 1px solid #b2ebf2;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.rocket-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.join-rocket-program {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.join-rocket-program:hover {
+    color: #0056b3;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 992px) {
+    .content-sections {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .steps-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .program-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .referral-program-container {
+        padding: 20px;
+    }
+    .referral-header h2 {
+        font-size: 24px;
+    }
+    .stat-value {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    .code-input-group {
+        flex-direction: column;
+    }
+    .copy-button {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #0069d9;
+        border-radius: 0 0 8px 8px;
+    }
+    .referral-code-input {
+        border-radius: 8px 8px 0 0;
+    }
+}

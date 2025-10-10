@@ -10,9 +10,6 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 
 
 function Estructura() {
-  const pages = "Para ti"
-  const title_pages = "Proyectos Recientes"
-
   return (
     <div className="dashboard-container">
       {/* Sidebar */}
@@ -62,14 +59,7 @@ function Estructura() {
 
       {/* Contenido Principal */}
       <main className="main-content">
-        <header className="main-header">
-          <div className="breadcrumbs">
-            <span>Pagina / {pages}</span>
-            <h2>{title_pages}</h2>
-          </div>
-        </header>
-
-        {/* ¡Aquí se renderizaran los componentes de tus sub-rutas! */}
+        {/* ¡Aquí se renderizaran los componentes sub-rutas! */}
         <Outlet />
 
       </main>
