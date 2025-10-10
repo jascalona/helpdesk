@@ -79,11 +79,12 @@ body {
     text-decoration: none;
     border-radius: 5px;
     margin: 0 10px;
+    transition: all .1;
 }
 .sidebar .navigation a:hover,
 .sidebar .navigation li.active a {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: #BBFCFC;
+    color: gray;
 }
 
 /* 🚀 AJUSTE PARA ALINEACIÓN Y ESPACIADO DEL ICONO DE MATERIAL UI */
