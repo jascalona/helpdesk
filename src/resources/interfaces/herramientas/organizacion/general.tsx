@@ -1,7 +1,6 @@
 
 import React, { useRef, useState, useCallback } from 'react';
-import '../../../assets/css/section_general.css';
-
+import '../../../../assets/css/section_general.css';
 //Componentes
 import CardResumen from './componentes/cards';
 
@@ -44,88 +43,91 @@ const general: React.FC = () => {
     }, []);
 
     return (
-        <div className="referral-program-container">
-            <div className="referral-header">
-                <h2>Diseño Organizacional</h2>
-                <p>Administre, diseñe y observe los distintos recursos de helpdesk pone a su disposicion para gestionar los recursos de su organizacion.</p>
-            </div>
+        <>
 
-            {/* Bloque de Estadísticas */}
-            <div className="stats-grid">
-              <CardResumen />
-            </div>
-
-            <div className="content-sections">
-                {/* Sección de Código de Referencia */}
-                <div className="referral-code-section">
-                    <h3>Código de referencia</h3>
-                    <p>Copie el código a continuación en su proveedor registrado.</p>
-                    <div className="code-info">
-                        <p className="generated-date">Generado hace 23 días por softuidesk123</p>
-                        <p className="generated-date">(Usado una vez)</p>
-                    </div>
-                    <div className="code-input-group">
-                        <input
-                            type="text"
-                            value="soft-ui-dashboard-vmek092"
-                            readOnly
-                            className="referral-code-input"
-                            ref={codeInputRef} // Asignamos la referencia
-                        />
-                        {/* Asignamos el manejador de evento onClick */}
-                        <button className="copy-button" onClick={handleCopy}>
-                            {copyStatus}
-                        </button>
-                    </div>
-                    <p className="no-codes-message">No puedes generar códigos.</p>
-                    <p className="contact-message">Contáctanos para generar más enlaces de referencias.</p>
+            <div className="referral-program-container">
+                <div className="referral-header">
+                    <h2>Diseño Organizacional</h2>
+                    <p>Administre, diseñe y observe los distintos recursos de helpdesk pone a su disposicion para gestionar los recursos de su organizacion.</p>
                 </div>
 
-                {/* Sección Cómo utilizar */}
-                <div className="how-to-use-section">
-                    <h3>Cómo utilizar</h3>
-                    <p>Integra tu código de referencia en 3 sencillos pasos.</p>
-                    <div className="steps-grid">
-                        <div className="step-card">
-                            <StepIcon />
-                            <p className="step-description">1. Crea y valida tu enlace de referencia y obtén</p>
-                            <p className="step-reward">$ 100</p>
-                        </div>
-                        <div className="step-card">
-                            <StepIcon />
-                            <p className="step-description">2. Por cada pedido que realices obtendrás</p>
-                            <p className="step-reward">10 %</p>
-                        </div>
-                        <div className="step-card">
-                            <StepIcon />
-                            <p className="step-description">3. Consigue que otros amigos generen enlaces y obtengan</p>
-                            <p className="step-reward">$ 500</p>
-                        </div>
-                    </div>
+                {/* Bloque de Estadísticas */}
+                <div className="stats-grid">
+                    <CardResumen />
                 </div>
-            </div>
 
-            {/* Bloque Otros Programas */}
-            <div className="other-programs">
-                <h2>Otros programas</h2>
-                <div className="program-cards-grid">
-                    <div className="program-card">
-                        <img src="https://via.placeholder.com/300x150" alt="Program Image 1" className="program-image" />
-                        <p>Una el #hashtag en una foto en redes sociales y obtén $10 por cada compra que realices.</p>
-                        <a href="#" className="read-more">Leer Más →</a>
+                <div className="content-sections">
+                    {/* Sección de Código de Referencia */}
+                    <div className="referral-code-section">
+                        <h3>Código de referencia</h3>
+                        <p>Copie el código a continuación en su proveedor registrado.</p>
+                        <div className="code-info">
+                            <p className="generated-date">Generado hace 23 días por softuidesk123</p>
+                            <p className="generated-date">(Usado una vez)</p>
+                        </div>
+                        <div className="code-input-group">
+                            <input
+                                type="text"
+                                value="soft-ui-dashboard-vmek092"
+                                readOnly
+                                className="referral-code-input"
+                                ref={codeInputRef} // Asignamos la referencia
+                            />
+                            {/* Asignamos el manejador de evento onClick */}
+                            <button className="copy-button" onClick={handleCopy}>
+                                {copyStatus}
+                            </button>
+                        </div>
+                        <p className="no-codes-message">No puedes generar códigos.</p>
+                        <p className="contact-message">Contáctanos para generar más enlaces de referencias.</p>
                     </div>
-                    <div className="program-card">
-                        <img src="https://via.placeholder.com/300x150" alt="Program Image 2" className="program-image" />
-                        <p>Envía el enlace de invitación a 10 amigos y obtén un cupón del 50% para usar en cualquier compra.</p>
-                        <a href="#" className="read-more">Leer Más →</a>
+
+                    {/* Sección Cómo utilizar */}
+                    <div className="how-to-use-section">
+                        <h3>Cómo utilizar</h3>
+                        <p>Integra tu código de referencia en 3 sencillos pasos.</p>
+                        <div className="steps-grid">
+                            <div className="step-card">
+                                <StepIcon />
+                                <p className="step-description">1. Crea y valida tu enlace de referencia y obtén</p>
+                                <p className="step-reward">$ 100</p>
+                            </div>
+                            <div className="step-card">
+                                <StepIcon />
+                                <p className="step-description">2. Por cada pedido que realices obtendrás</p>
+                                <p className="step-reward">10 %</p>
+                            </div>
+                            <div className="step-card">
+                                <StepIcon />
+                                <p className="step-description">3. Consigue que otros amigos generen enlaces y obtengan</p>
+                                <p className="step-reward">$ 500</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="rocket-card">
-                        <img src="https://via.placeholder.com/100x100" alt="Rocket" className="rocket-image" />
-                        <a href="#" className="join-rocket-program">Únase Al Programa Rocketship →</a>
+                </div>
+
+                {/* Bloque Otros Programas */}
+                <div className="other-programs">
+                    <h2>Otros programas</h2>
+                    <div className="program-cards-grid">
+                        <div className="program-card">
+                            <img src="https://via.placeholder.com/300x150" alt="Program Image 1" className="program-image" />
+                            <p>Una el #hashtag en una foto en redes sociales y obtén $10 por cada compra que realices.</p>
+                            <a href="#" className="read-more">Leer Más →</a>
+                        </div>
+                        <div className="program-card">
+                            <img src="https://via.placeholder.com/300x150" alt="Program Image 2" className="program-image" />
+                            <p>Envía el enlace de invitación a 10 amigos y obtén un cupón del 50% para usar en cualquier compra.</p>
+                            <a href="#" className="read-more">Leer Más →</a>
+                        </div>
+                        <div className="rocket-card">
+                            <img src="https://via.placeholder.com/100x100" alt="Rocket" className="rocket-image" />
+                            <a href="#" className="join-rocket-program">Únase Al Programa Rocketship →</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 export default general;

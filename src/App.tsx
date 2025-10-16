@@ -4,7 +4,7 @@ import './assets/css/App.css';
 //Componentes
 import Estructura from './resources/componentes/Estructura/Estructura';
 import Herramientas from './resources/interfaces/herramientas/panel_setting';
-import General from './resources/interfaces/herramientas/general';
+import General from './resources/interfaces/herramientas/organizacion/general';
 
 function App() {
 

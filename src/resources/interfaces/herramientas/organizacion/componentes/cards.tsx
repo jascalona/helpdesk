@@ -1,9 +1,11 @@
-import { useState } from "react";
+import CardBack from './back_card';
 
 function CardResumen() {
 
     return (
         <>
+
+
             <div className="stat-card">
                 <p className="stat-label">Ganancias</p>
                 <p className="stat-value">$23.980</p>
