@@ -2,6 +2,9 @@
 import React, { useRef, useState, useCallback } from 'react';
 import '../../../assets/css/section_general.css';
 
+//Componentes
+import CardResumen from './componentes/cards';
+
 // 1. Definición del Icono (Mejor usar un componente separado)
 const StepIcon: React.FC = () => (
     <div className="step-icon">
@@ -43,28 +46,13 @@ const general: React.FC = () => {
     return (
         <div className="referral-program-container">
             <div className="referral-header">
-                <h2>Programa de referencias</h2>
-                <p>Realice un seguimiento y encuentre todos los detalles sobre nuestro programa de referidos, sus estadísticas e ingresos.</p>
+                <h2>Diseño Organizacional</h2>
+                <p>Administre, diseñe y observe los distintos recursos de helpdesk pone a su disposicion para gestionar los recursos de su organizacion.</p>
             </div>
 
             {/* Bloque de Estadísticas */}
             <div className="stats-grid">
-                <div className="stat-card">
-                    <p className="stat-label">Ganancias</p>
-                    <p className="stat-value">$23.980</p>
-                </div>
-                <div className="stat-card">
-                    <p className="stat-label">Clientes</p>
-                    <p className="stat-value">$2.400</p>
-                </div>
-                <div className="stat-card">
-                    <p className="stat-label">Valor Promedio</p>
-                    <p className="stat-value">$48</p>
-                </div>
-                <div className="stat-card">
-                    <p className="stat-label">Tasa De Reembolso</p>
-                    <p className="stat-value">4%</p>
-                </div>
+              <CardResumen />
             </div>
 
             <div className="content-sections">
