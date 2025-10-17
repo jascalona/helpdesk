@@ -1,4 +1,5 @@
-import CardBack from './back_card';
+import CardBack from './back_empresa';
+import CardArea from './back_area';
 
 function CardResumen() {
 
@@ -7,16 +8,16 @@ function CardResumen() {
 
 
             <div className="stat-card">
-                <p className="stat-label">Ganancias</p>
-                <p className="stat-value">$23.980</p>
+                <p className="stat-label">Total de empresas</p>
+                <p className="stat-value"><CardBack /></p>
             </div>
             
             <div className="stat-card">
-                <p className="stat-label">Clientes</p>
-                <p className="stat-value">$2.400</p>
+                <p className="stat-label">Total de areas</p>
+                <p className="stat-value"><CardArea /></p>
             </div>
             <div className="stat-card">
-                <p className="stat-label">Valor Promedio</p>
+                <p className="stat-label">Total de sub-areas</p>
                 <p className="stat-value">$48</p>
             </div>
             <div className="stat-card">
