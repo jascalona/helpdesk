@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 
 
-const areaURL = "http://localhost:8080/basetomee/area/listar";
+const areaURL = "http://localhost:8080/basetomee/area/list";
 
 function CardArea() {
 
