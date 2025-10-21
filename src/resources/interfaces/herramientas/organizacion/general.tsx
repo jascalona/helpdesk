@@ -85,7 +85,7 @@ const general: React.FC = () => {
                         <div className="program-card">
                             <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Area" className="program-image" />
                             <p><strong>Crear Aarea:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
-                            <Link to={"area"} className="read-more">Leer Más →</Link>
+                            <Link to={"/herramientas/area"} className="read-more">Leer Más →</Link>
                         </div>
 
                         <div className="program-card">

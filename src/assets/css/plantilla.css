@@ -1,0 +1,18 @@
+.create-empresa{
+    background: rebeccapurple;
+    padding: 30px;
+    width: 90%;
+    margin: 50px auto;
+    display: grid;
+    gap: 20px;
+}
+
+
+
+
+@media (min-width: 1100px) {
+    .create-empresa{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
