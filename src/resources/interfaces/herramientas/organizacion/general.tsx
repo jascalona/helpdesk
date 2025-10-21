@@ -1,10 +1,16 @@
 
 import React, { useRef, useState, useCallback } from 'react';
 import '../../../../assets/css/section_general.css';
+
+
 //Componentes
 import CardResumen from './componentes/cards';
+import CreateEmpresa from './componentes/create_empresa';
+import ListEmpresas from './componentes/crad_empresas';
+import { Link } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
 
-// 1. Definición del Icono (Mejor usar un componente separado)
+// Definición del Icono (Mejor usar un componente separado)
 const StepIcon: React.FC = () => (
     <div className="step-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,74 +65,43 @@ const general: React.FC = () => {
                 <div className="content-sections">
                     {/* Sección de Código de Referencia */}
                     <div className="referral-code-section">
-                        <h3>Código de referencia</h3>
-                        <p>Copie el código a continuación en su proveedor registrado.</p>
-                        <div className="code-info">
-                            <p className="generated-date">Generado hace 23 días por softuidesk123</p>
-                            <p className="generated-date">(Usado una vez)</p>
-                        </div>
-                        <div className="code-input-group">
-                            <input
-                                type="text"
-                                value="soft-ui-dashboard-vmek092"
-                                readOnly
-                                className="referral-code-input"
-                                ref={codeInputRef} // Asignamos la referencia
-                            />
-                            {/* Asignamos el manejador de evento onClick */}
-                            <button className="copy-button" onClick={handleCopy}>
-                                {copyStatus}
-                            </button>
-                        </div>
-                        <p className="no-codes-message">No puedes generar códigos.</p>
-                        <p className="contact-message">Contáctanos para generar más enlaces de referencias.</p>
+                        <h3>Nueva Empresa</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, quis!</p>
+                        <CreateEmpresa />
                     </div>
 
-                    {/* Sección Cómo utilizar */}
+                    {/* Sección List empresas */}
                     <div className="how-to-use-section">
-                        <h3>Cómo utilizar</h3>
-                        <p>Integra tu código de referencia en 3 sencillos pasos.</p>
-                        <div className="steps-grid">
-                            <div className="step-card">
-                                <StepIcon />
-                                <p className="step-description">1. Crea y valida tu enlace de referencia y obtén</p>
-                                <p className="step-reward">$ 100</p>
-                            </div>
-                            <div className="step-card">
-                                <StepIcon />
-                                <p className="step-description">2. Por cada pedido que realices obtendrás</p>
-                                <p className="step-reward">10 %</p>
-                            </div>
-                            <div className="step-card">
-                                <StepIcon />
-                                <p className="step-description">3. Consigue que otros amigos generen enlaces y obtengan</p>
-                                <p className="step-reward">$ 500</p>
-                            </div>
-                        </div>
+                        <ListEmpresas />
+
                     </div>
                 </div>
 
                 {/* Bloque Otros Programas */}
                 <div className="other-programs">
-                    <h2>Otros programas</h2>
+                    <h2>Otros funciones</h2>
                     <div className="program-cards-grid">
+
                         <div className="program-card">
-                            <img src="https://via.placeholder.com/300x150" alt="Program Image 1" className="program-image" />
-                            <p>Una el #hashtag en una foto en redes sociales y obtén $10 por cada compra que realices.</p>
-                            <a href="#" className="read-more">Leer Más →</a>
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Area" className="program-image" />
+                            <p><strong>Crear Aarea:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
+                            <Link to={"area"} className="read-more">Leer Más →</Link>
                         </div>
+
                         <div className="program-card">
-                            <img src="https://via.placeholder.com/300x150" alt="Program Image 2" className="program-image" />
-                            <p>Envía el enlace de invitación a 10 amigos y obtén un cupón del 50% para usar en cualquier compra.</p>
-                            <a href="#" className="read-more">Leer Más →</a>
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Sub-area" className="program-image" />
+                            <p><strong>Crear Sub-area:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
+                            <Link to={"subarea"} className="read-more">Leer Más →</Link>
                         </div>
+
+
                         <div className="rocket-card">
-                            <img src="https://via.placeholder.com/100x100" alt="Rocket" className="rocket-image" />
-                            <a href="#" className="join-rocket-program">Únase Al Programa Rocketship →</a>
+                            <a href="#"  className="join-rocket-program">Nuevo Componente <strong> +</strong></a>
                         </div>
                     </div>
                 </div>
             </div>
+            <br /><br />
         </>
     );
 }

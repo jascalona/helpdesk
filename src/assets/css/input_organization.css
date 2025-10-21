@@ -1,0 +1,146 @@
+/*Componente Select Option*/
+.custom-select-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    color: #42526e;
+    background: #f4f5f7;
+    border-radius: 8px;
+    border: 1px solid rgba(43, 42, 42, 0.177);
+
+}
+
+/* --- Estilos Base para el Input --- */
+.content-input {
+    margin-bottom: 10px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+    font-size: 12px;
+}
+
+.content-input input {
+    width: 100%;
+    margin: 3px auto;
+    color: #42526e;
+    background: #f4f5f7;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(43, 42, 42, 0.177);
+    outline: none;
+}
+
+/* --- Estilos Modernos de Foco --- */
+.content-input input:focus {
+    outline: none;
+    border-color: #5A639C;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+/* --- Estilos de Validación: Error (El más importante) --- */
+.content-input .input-error {
+    border-color: #dc3545;
+    /* Color rojo para el error */
+    box-shadow: 0 0 0 1px rgba(220, 53, 69, 0.25);
+}
+
+/* --- Estilo para el Mensaje de Error --- */
+.error-message {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #dc3545;
+    /* Rojo para el error */
+    font-weight: 400;
+    /* Estilo moderno: un poco de espacio y transición */
+    opacity: 1;
+    max-height: 50px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Etiqueta del select */
+.select-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    /* Un poco más de peso para la etiqueta */
+    color: #f3f3f3;
+    /* Color de texto de la etiqueta */
+    margin-top: 2px;
+}
+
+/* El campo de visualización del valor seleccionado */
+.selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 12px;
+    /* Fondo del input */
+    border-radius: 6px;
+    cursor: pointer;
+    min-height: 37px;
+    font-size: 13px;
+    line-height: 20px;
+    /* Altura de línea para el texto dentro del input */
+    box-shadow: inset 0 0 0 rgba(209, 213, 218, 0.005);
+    /* Sombra interna sutil si es necesario */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Estilo para el ícono del dropdown */
+.selected-item .MuiSvgIcon-root {
+    color: #42526e;
+    margin-left: 8px;
+}
+
+/* Lista de opciones (el menú desplegable) */
+.options-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    /* Espacio más cercano al input */
+    left: 0;
+    width: 100%;
+    background: #f4f5f7;
+    border: 1px solid rgba(43, 42, 42, 0.177);
+    border-radius: 6px;
+    list-style: none;
+    padding: 4px 0;
+    /* Padding interno reducido */
+    margin: 0;
+    z-index: 100;
+    display: none;
+    /* Oculto por defecto */
+    box-shadow: 0 8px 24px rgba(13, 17, 23, 0.4);
+    /* Sombra más pronunciada */
+}
+
+/* Clase para mostrar el menú desplegable */
+.options-list.open {
+    display: block;
+}
+
+/* Estilo para cada opción individual */
+.options-list li {
+    padding: 6px 12px;
+    /* Padding ajustado para cada opción */
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    color: #42526e;
+    /* Color de texto para las opciones */
+}
+
+/* Estilo al pasar el ratón por encima de una opción */
+.options-list li:hover {
+    background: #5a639c26;
+    /* Fondo al hacer hover sobre una opción */
+}
