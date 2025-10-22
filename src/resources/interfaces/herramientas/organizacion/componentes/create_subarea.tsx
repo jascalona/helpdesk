@@ -13,21 +13,19 @@ import AdsClickIcon from '@mui/icons-material/AdsClick';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
 
 
-const API_URL = 'http://localhost:8080/basetomee/area/create';
+const API_URL = 'http://localhost:8080/basetomee/subarea/create';
 
 // Definicion de la estructura de los datos del formulario para tipado
 interface FormData {
-    co_empresa: string;
-    nb_area: string;
-    st_estado: string;
+    nb_subarea: string;
+    co_area: string;
 }
 
 function CreateArea() {
     // Estado para almacenar los valores del formulario
     const [formData, setFormData] = useState<FormData>({
-        co_empresa: '',
-        nb_area: '',
-        st_estado: '',
+        nb_subarea: '',
+        co_area: '',
     });
 
     // Estado para la clave del formulario. 
@@ -59,7 +57,7 @@ function CreateArea() {
         setSuccess(false);
 
         // Validar que todos los campos no estén vacíos antes de enviar
-        if (!formData.co_empresa || !formData.nb_area || !formData.st_estado) {
+        if (!formData.nb_subarea || !formData.co_area) {
             setError('Todos los campos son obligatorios.');
             setIsLoading(false);
             return;
@@ -78,9 +76,8 @@ function CreateArea() {
 
             // Limpiar el formulario después de un registro exitoso
             setFormData({
-                co_empresa: '',
-                nb_area: '',
-                st_estado: ''
+                nb_subarea: '',
+                co_area: ''
             });
 
             // Incremento de la clave para forzar el reinicio de los Inputs
@@ -109,34 +106,25 @@ function CreateArea() {
                 <div className="formulario" style={{marginRight: '15px'}}>
                     <form onSubmit={handleSubmit} key={formKey}>
                         {/* -------------------- Inputs -------------------- */}
+
                         <Inputs
-                            label="RIF"
-                            placeholder="Por ejemplo, J123456789"
+                            label="Nombre de la Subarea"
+                            placeholder="Por ejemplo, QA"
                             required={true}
-                            errorMessage="El RIF debe tener al menos de 7 a 14 caracteres y no contener símbolos."
-                            pattern="^[A-Za-z0-9]{7,14}$"
-                            value={formData.co_empresa}
-                            onChange={(v) => handleChange('co_empresa', v)}
+                            errorMessage="El nombre debe tener al menos 2 caracteres y no contener símbolos."
+                            pattern="^[A-Za-z0-9\s]{2,10}$"
+                            value={formData.nb_subarea}
+                            onChange={(v) => handleChange('nb_subarea', v)}
                         />
 
                         <Inputs
-                            label="Nombre del Area"
-                            placeholder="Por ejemplo, Gestion de Servicios"
+                            label="Codigo de Area"
+                            placeholder="Por ejemplo, 3"
                             required={true}
-                            errorMessage="El nombre debe tener al menos 3 caracteres y no contener símbolos."
-                            pattern="^[A-Za-z0-9\s]{3,100}$"
-                            value={formData.nb_area}
-                            onChange={(v) => handleChange('nb_area', v)}
-                        />
-
-                        <Inputs
-                            label="Estado"
-                            placeholder="Por ejemplo, ACTIVO"
-                            required={true}
-                            errorMessage="El estado debe tener un rango comprendido de 3 a 10 caracteres y no contener símbolos."
-                            pattern="^[A-Za-z0-9\s]{3,10}$"
-                            value={formData.st_estado}
-                            onChange={(v) => handleChange('st_estado', v)}
+                            errorMessage="El estado debe tener un rango comprendido de 1 a 10 caracteres y no contener símbolos."
+                            pattern="^[A-Za-z0-9\s]{1,10}$"
+                            value={formData.co_area}
+                            onChange={(v) => handleChange('co_area', v)}
                         />
 
                         {/* ----------------- Feedback al Usuario ----------------- */}

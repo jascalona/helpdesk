@@ -1,5 +1,6 @@
 
 import React, { useRef, useState, useCallback } from 'react';
+import TableArea from './componentes/table_area';
 import '../../../../assets/css/section_general.css';
 
 
@@ -9,6 +10,7 @@ import CreateEmpresa from './componentes/create_empresa';
 import ListEmpresas from './componentes/crad_empresas';
 import { Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
+import CreateSubarea from './componentes/create_subarea';
 
 // Definición del Icono (Mejor usar un componente separado)
 const StepIcon: React.FC = () => (
@@ -21,7 +23,7 @@ const StepIcon: React.FC = () => (
 
 
 // 2. Componente principal en TSX
-const general: React.FC = () => {
+const Subarea: React.FC = () => {
     // Referencia para acceder al elemento input del código
     const codeInputRef = useRef<HTMLInputElement>(null);
     // Estado para mostrar confirmación de copiado
@@ -53,27 +55,21 @@ const general: React.FC = () => {
 
             <div className="referral-program-container">
                 <div className="referral-header">
-                    <h2>Diseño Organizacional</h2>
+                    <h2>Diseño de Area</h2>
                     <p>Administre, diseñe y observe los distintos recursos de helpdesk pone a su disposicion para gestionar los recursos de su organizacion.</p>
-                </div>
-
-                {/* Bloque de Estadísticas */}
-                <div className="stats-grid">
-                    <CardResumen />
                 </div>
 
                 <div className="content-sections">
                     {/* Sección de Código de Referencia */}
                     <div className="referral-code-section">
-                        <h3>Nueva Empresa</h3>
+                        <h3>Nueva Area</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, quis!</p>
-                        <CreateEmpresa />
+                        <CreateSubarea />
                     </div>
 
                     {/* Sección List empresas */}
                     <div className="how-to-use-section">
-                        <ListEmpresas />
-
+                        <TableArea />
                     </div>
                 </div>
 
@@ -84,7 +80,7 @@ const general: React.FC = () => {
 
                         <div className="program-card">
                             <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Area" className="program-image" />
-                            <p><strong>Crear Area:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
+                            <p><strong>Crear Empresa:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
                             <Link to={"/herramientas/area"} className="read-more">Leer Más →</Link>
                         </div>
 
@@ -105,4 +101,4 @@ const general: React.FC = () => {
         </>
     );
 }
-export default general;
+export default Subarea;
