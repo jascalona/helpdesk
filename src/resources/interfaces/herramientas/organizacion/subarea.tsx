@@ -1,6 +1,5 @@
 
 import React, { useRef, useState, useCallback } from 'react';
-import TableArea from './componentes/table_area';
 import '../../../../assets/css/section_general.css';
 
 
@@ -11,6 +10,8 @@ import ListEmpresas from './componentes/crad_empresas';
 import { Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import CreateSubarea from './componentes/create_subarea';
+import TableSubarea from './componentes/table_subarea';
+
 
 // Definición del Icono (Mejor usar un componente separado)
 const StepIcon: React.FC = () => (
@@ -55,21 +56,21 @@ const Subarea: React.FC = () => {
 
             <div className="referral-program-container">
                 <div className="referral-header">
-                    <h2>Diseño de Area</h2>
+                    <h2>Diseño de Suba-area</h2>
                     <p>Administre, diseñe y observe los distintos recursos de helpdesk pone a su disposicion para gestionar los recursos de su organizacion.</p>
                 </div>
 
                 <div className="content-sections">
                     {/* Sección de Código de Referencia */}
                     <div className="referral-code-section">
-                        <h3>Nueva Area</h3>
+                        <h3>Nueva Suba-area</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, quis!</p>
                         <CreateSubarea />
                     </div>
 
                     {/* Sección List empresas */}
                     <div className="how-to-use-section">
-                        <TableArea />
+                        <TableSubarea />
                     </div>
                 </div>
 
@@ -79,15 +80,15 @@ const Subarea: React.FC = () => {
                     <div className="program-cards-grid">
 
                         <div className="program-card">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Area" className="program-image" />
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Area" className="program-image" />
                             <p><strong>Crear Empresa:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
-                            <Link to={"/herramientas/area"} className="read-more">Leer Más →</Link>
+                            <Link to={"/herramientas/general"} className="read-more">Leer Más →</Link>
                         </div>
 
                         <div className="program-card">
-                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Sub-area" className="program-image" />
-                            <p><strong>Crear Sub-area:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
-                            <Link to={"/herramientas/subarea"} className="read-more">Leer Más →</Link>
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Sub-area" className="program-image" />
+                            <p><strong>Crear Area:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
+                            <Link to={"/herramientas/area"} className="read-more">Leer Más →</Link>
                         </div>
 
 

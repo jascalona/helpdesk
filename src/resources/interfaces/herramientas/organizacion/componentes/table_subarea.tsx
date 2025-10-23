@@ -9,12 +9,10 @@ import axios from 'axios';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import '../../../../../assets/css/tabla.css';
 
-interface Area {
-    co_area: string;
-    nb_area: string;
-    co_empresa: string,
-    st_area: string;
-    fe_registro: string;
+interface Subarea {
+    co_subarea: string;
+    nb_subarea: string;
+    co_area: string,
 }
 
 // Definición inicial de filtros para el DataTable
@@ -24,8 +22,8 @@ const initialFilters = {
 };
 
 
-function TableArea() {
-    const [area, setAreas] = useState<Area[]>([]);
+function TableSubarea() {
+    const [area, setAreas] = useState<Subarea[]>([]);
     const [cargando, setCargando] = useState(true);
     // Estado para manejar los filtros de la tabla
     const [filters, setFilters] = useState(initialFilters);
@@ -33,7 +31,7 @@ function TableArea() {
     const [globalFilterValue, setGlobalFilterValue] = useState('');
 
     useEffect(() => {
-        axios.get<Area[]>('http://localhost:8080/basetomee/area/list')
+        axios.get<Subarea[]>('http://localhost:8080/basetomee/subarea/list')
             .then(response => {
                 setAreas(response.data);
                 setCargando(false);
@@ -48,19 +46,17 @@ function TableArea() {
     const exportExcel = () => {
         // Mapear los datos a un formato más legible si es necesario,
         // o simplemente usa el arreglo de empresas.
-        const dataForExport = area.map(area => ({
-            "Id": area.co_area,
-            "Nombre Area": area.nb_area,
-            "Fe. Registro": area.fe_registro,
-            "RIF": area.co_empresa,
-            "Estado": area.st_area,
+        const dataForExport = area.map(subarea => ({
+            "Id": subarea.co_area,
+            "Nombre Subarea": subarea.co_subarea,
+            "Id Area": subarea.co_area,
         }));
 
         const worksheet = XLSX.utils.json_to_sheet(dataForExport);
         const workbook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Areas");
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Subarea");
 
-        XLSX.writeFile(workbook, "areas_data.xlsx");
+        XLSX.writeFile(workbook, "subareas_data.xlsx");
     };
 
     // FUNCION CORREGIDA
@@ -78,11 +74,9 @@ function TableArea() {
 
     // Campos en los que se aplicará la búsqueda global
     const globalFilterFields = [
+        'co_subarea',
+        'nb_subarea',
         'co_area',
-        'nb_area',
-        'fe_registro',
-        'co_empresa',
-        'st_estado'
     ];
 
     if (cargando) return <p>Cargando registros...</p>;
@@ -125,16 +119,13 @@ function TableArea() {
                     filters={filters} // Se pasa el objeto de filtros actualizado
                     globalFilterFields={globalFilterFields} // Se indican las columnas a filtrar
                 >
-                    <Column field="co_area" header="Id"></Column>
-                    <Column field="nb_area" header="Nm Area"></Column>
-                    <Column field="fe_registro" header="Fe Registro"></Column>
-                    <Column field="co_empresa" header="RIF"></Column>
-                    <Column field="st_area" header="Estado"></Column>
-
+                    <Column field="co_subarea" header="Id"></Column>
+                    <Column field="nb_subarea" header="Nm Subarea"></Column>
+                    <Column field="co_area" header="Id Area"></Column>
                 </DataTable>
             </div>
         </>
     )
 }
 
-export default TableArea;
+export default TableSubarea;

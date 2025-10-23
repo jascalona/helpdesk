@@ -1,31 +1,24 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Inputs from './input';
-import { Link } from 'react-router-dom';
-
 
 // Importaciones de estilos e iconos
 import '../../../../../assets/css/input_organization.css';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ErrorIcon from '@mui/icons-material/Error';
 
-import AdsClickIcon from '@mui/icons-material/AdsClick';
-import WorkspacesIcon from '@mui/icons-material/Workspaces';
-
 
 const API_URL = 'http://localhost:8080/basetomee/subarea/create';
 
-// Definicion de la estructura de los datos del formulario para tipado
 interface FormData {
     nb_subarea: string;
-    co_area: string;
+    co_area: number | ''; 
 }
 
 function CreateArea() {
-    // Estado para almacenar los valores del formulario
     const [formData, setFormData] = useState<FormData>({
         nb_subarea: '',
-        co_area: '',
+        co_area: '' // Inicializado como cadena vacía para que el input funcione correctamente
     });
 
     // Estado para la clave del formulario. 
@@ -36,18 +29,36 @@ function CreateArea() {
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState(false);
 
-    // Función genérica para manejar los cambios en cualquier input
+    // MODIFICACION: Función genérica para manejar los cambios en cualquier input
     const handleChange = (name: keyof FormData, value: string) => {
-        setFormData(prevData => ({
-            ...prevData,
-            [name]: value
-        }));
+        setFormData(prevData => {
+            let newValue: string | number = value;
+
+            // Lógica de conversión: Si el campo es 'co_area', intenta convertirlo a número
+            if (name === 'co_area') {
+                // Si el valor es una cadena vacía, mantenla como cadena vacía
+                if (value === '') {
+                    newValue = '';
+                } else {
+                    // Intenta convertir a entero (asumiendo que co_area es un código entero)
+                    const parsedValue = parseInt(value, 10);
+                    // Solo actualiza si es un número válido. Si no lo es, se ignora el cambio o se mantiene el valor original
+                    newValue = isNaN(parsedValue) ? prevData.co_area : parsedValue;
+                }
+            }
+
+            return {
+                ...prevData,
+                [name]: newValue
+            };
+        });
+        
         // limpiar los mensajes de éxito/error cuando el usuario empieza a escribir
         if (error) setError(null);
         if (success) setSuccess(false);
     };
 
-    // FUNCIÓN AJUSTADA PARA LLAMAR A LA API (POST)
+    //  MODIFICACION: FUNCIÓN AJUSTADA PARA LLAMAR A LA API (POST)
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -57,13 +68,15 @@ function CreateArea() {
         setSuccess(false);
 
         // Validar que todos los campos no estén vacíos antes de enviar
-        if (!formData.nb_subarea || !formData.co_area) {
-            setError('Todos los campos son obligatorios.');
+        // Se valida que co_area no sea cadena vacía y que sea un número
+        if (!formData.nb_subarea || formData.co_area === '' || typeof formData.co_area !== 'number') {
+            setError('Todos los campos son obligatorios y el Código de Área debe ser un número.');
             setIsLoading(false);
             return;
         }
 
         try {
+            // El objeto 'formData' ya tiene co_area como un número, listo para enviar
             const response = await axios.post(API_URL, formData, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,7 +90,7 @@ function CreateArea() {
             // Limpiar el formulario después de un registro exitoso
             setFormData({
                 nb_subarea: '',
-                co_area: ''
+                co_area: '' // Limpiado a cadena vacía para reiniciar el input
             });
 
             // Incremento de la clave para forzar el reinicio de los Inputs
@@ -121,16 +134,18 @@ function CreateArea() {
                             label="Codigo de Area"
                             placeholder="Por ejemplo, 3"
                             required={true}
-                            errorMessage="El estado debe tener un rango comprendido de 1 a 10 caracteres y no contener símbolos."
-                            pattern="^[A-Za-z0-9\s]{1,10}$"
-                            value={formData.co_area}
+                            errorMessage="El Código de Área debe ser un número entero válido (1 a 10 dígitos)."
+                            // Se recomienda usar un patrón más simple para números o el 'type="number"' en el componente `Inputs`
+                            pattern="^[0-9]{1,10}$" 
+                            // Convertir el número a cadena para el input (si Inputs no lo hace internamente)
+                            value={String(formData.co_area)}
                             onChange={(v) => handleChange('co_area', v)}
                         />
 
                         {/* ----------------- Feedback al Usuario ----------------- */}
                         {isLoading && <p>Cargando, por favor espera...</p>}
                         {error && <p style={{ color: 'red', fontWeight: 'bold', display: 'flex', alignItems: 'center' }}><ErrorIcon sx={{ color: 'red', textAlign: 'center' }} /> {error}</p>}
-                        {success && <p style={{ color: 'green', fontWeight: 'bold', display: 'flex', alignItems: 'center' }}><CheckBoxIcon sx={{ color: 'green' }} /> Empresa creada exitosamente!</p>}
+                        {success && <p style={{ color: 'green', fontWeight: 'bold', display: 'flex', alignItems: 'center' }}><CheckBoxIcon sx={{ color: 'green' }} /> Subárea creada exitosamente!</p>}
                         <br />
                         <button className='crear-button'
                             type="submit"
