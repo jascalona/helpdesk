@@ -135,3 +135,57 @@
   .p-input-icon-left .pi-search {
       color: #999;
   }
+
+  /*-----------------------------------------*/
+/*Botones flotantes*/
+/* 1. Estilos Base para la Fila y Celdas */
+/* Para que el posicionamiento sea relativo a la fila */
+.tabla tbody tr {
+    position: relative;
+}
+
+/* Opcional: Estilo de la fila al hacer hover */
+.tabla tbody tr:hover {
+    background-color: #cce0ff; /* Un color más claro para el feedback */
+}
+
+/* 2. Ocultar los Botones por Defecto */
+.botonera-flotante {
+    /* Inicialmente invisible */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Transición suave para la aparición */
+
+    /* Posicionamiento: Mueve la botonera fuera del flujo normal para flotar */
+    /* Asegúrate de que esta celda tenga espacio suficiente */
+    /* Puedes usar absolute si quieres que flote sobre otras celdas */
+    /* Ejemplo de cómo la imagen parece tener la botonera dentro de una celda */
+    display: flex; /* Para alinear los botones */
+    gap: 5px; /* Espacio entre los botones */
+    /* float: right; /* Si quieres que se peguen a la derecha de la celda */
+}
+
+/* 3. Mostrar los Botones en Hover */
+/* Cuando el cursor está sobre la fila (tr), haz que la botonera dentro de ella sea visible */
+.tabla tbody tr:hover .botonera-flotante {
+    opacity: 1; /* Completamente visible */
+}
+
+
+/* 4. Estilos de los Botones (Opcional pero Recomendado) */
+.icono-btn {
+    /* Estilos para los botones (círculos, etc.) */
+    border: none;
+    background-color: #007bff; /* Azul, similar a la imagen */
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    line-height: 1; /* Ajuste fino para iconos */
+}
+
+.icono-btn.editar {
+    background-color: #ffc107; /* Amarillo/Naranja para editar */
+}
+.icono-btn.eliminar {
+    background-color: #dc3545; /* Rojo para eliminar */
+}  

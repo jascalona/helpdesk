@@ -8,8 +8,8 @@ import CardSubarea from './componentes/back_subarea';
 import CardArea from './componentes/back_area';
 
 //Componentes Graficos
-import BasicPie from './componentes/ChartPie'
-import ArcDesign from './componentes/CharBar'
+import BasicPie from './componentes/Charts/ChartPie'
+import ArcDesign from './componentes/Charts/CharBar'
 
 function General_2() {
     return (
@@ -20,7 +20,7 @@ function General_2() {
 
                 <div className="stats-grid">
                     <div className="stat-card">
-                        <BasicPie />
+                        <BasicPie width={200} height={200}/>
                     </div>
                     <div className="stat-card">
                         <ArcDesign title="Porcentaje de Registros Area" data={12} />
