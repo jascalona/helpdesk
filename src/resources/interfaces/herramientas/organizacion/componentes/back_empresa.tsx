@@ -42,7 +42,7 @@ function CardBack() {
 
     return (
         <div>
-            <p style={{ fontSize: '40px', fontWeight: 'bold', color: '#007bff' }}>
+            <p style={{fontSize: 20}}>
                 {conteoEmpresas} 
             </p>
         </div>

@@ -44,7 +44,7 @@ function CardArea() {
 
     return (
         <>
-            <p style={{ fontSize: '40px', fontWeight: 'bold', color: '#007bff' }}>
+            <p style={{fontSize: 20}}>
                 {conteoAreas}
             </p>
         </>
