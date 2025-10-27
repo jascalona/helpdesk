@@ -15,7 +15,7 @@ function Herramientas() {
     const isBaseRoute = location.pathname.endsWith('/herramientas') || location.pathname.endsWith('/herramientas/');
 
     // Nota: Si tu ruta base fuera solo '/', usarías: location.pathname === '/' 
-    
+
     return (
         <>
             {/* 3. Bloque condicional: Solo se renderiza si estamos en la ruta base /herramientas */}
@@ -62,24 +62,26 @@ function Herramientas() {
                             description="A Ricardo le gusta programar en PHP!"
                             salary="Echar un vistazo"
                         />
+                        <Link to={"usermanager"}>
+                            <CardSetting
+                                avatarSrc={<GroupsIcon />}
+                                section="Gestion de Usuarios"
+                                timeAgo="Diseño Organizacional"
+                                recommendation={true}
+                                title="Gestiona usuarios, grupos y solicitudes de acceso."
+                                description="A Ricardo le gusta programar en PHP!"
+                                salary="Echar un vistazo"
+                            />
+                        </Link>
 
-                        <CardSetting
-                            avatarSrc={<GroupsIcon />}
-                            section="Gestion de Usuarios"
-                            timeAgo="Diseño Organizacional"
-                            recommendation={true}
-                            title="Gestiona usuarios, grupos y solicitudes de acceso."
-                            description="A Ricardo le gusta programar en PHP!"
-                            salary="Echar un vistazo"
-                        />
                         {/* -------------------------------------- */}
                     </div>
                 </>
             )}
-            
+
             {/* 5. El Outlet SIEMPRE debe estar fuera del condicional 
                para que General se renderice cuando navegas a /herramientas/general */}
-            <Outlet /> 
+            <Outlet />
         </>
     )
 }

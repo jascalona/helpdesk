@@ -1,0 +1,69 @@
+.container-manager {
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.init-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: #888888;
+    font-size: 40px;
+}
+
+.init-user>div {
+    display: flex;
+    flex-direction: column;
+    /* Apila el nombre y el rol */
+}
+
+.init-user p {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.2;
+
+}
+
+.init-user small {
+    margin: 0;
+    font-size: 0.85em;
+    color: #666;
+    line-height: 1.2;
+}
+
+/**********CARD USERS***********/
+.gallery-users {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card-users {
+    border: solid 1px #66666654;
+    padding: 10px;
+}
+
+.card-users .icon-users{
+    background: rebeccapurple;   
+    width: ;
+}
+
+@media (max-width: 790px) {
+    .gallery-users{
+        grid-template-columns: 1fr;
+    }
+}
+
