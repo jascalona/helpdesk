@@ -20,7 +20,7 @@ function General_2() {
 
                 <div className="stats-grid">
                     <div className="stat-card">
-                        <BasicPie width={200} height={200}/>
+                        <BasicPie width={200} height={200} />
                     </div>
                     <div className="stat-card">
                         <ArcDesign title="Porcentaje de Registros Area" data={12} />
@@ -74,6 +74,15 @@ function General_2() {
                 <div className="other-programs">
                     <h2>Otros funciones</h2>
                     <div className="program-cards-grid">
+
+                        <Link to={"/herramientas/empresa"} >
+                            <div className="program-card">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Area" className="program-image" />
+                                <p><strong>Crear Empresa:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
+
+                            </div>
+                        </Link>
+
 
                         <Link to={"/herramientas/area"} >
                             <div className="program-card">

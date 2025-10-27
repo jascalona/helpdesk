@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #055270; /* Morado principal */
+    --primary-color: #2733F5; /* Morado principal */
     --secondary-color: #f0f0f7; /* Fondo claro */
     --text-color-dark: #444444;
     --text-color-light: #777;
@@ -7,7 +7,7 @@
     --card-bg: #fff;
     --sidebar-bg: #fff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --bg-hover: #BBFCFC;
+    --bg-hover: #2733F5;
 }
 
 body {
@@ -81,8 +81,8 @@ body {
 }
 .sidebar .navigation a:hover,
 .sidebar .navigation li.active a {
-    background-color: #BBFCFC;
-    color: gray;
+    background-color: #2733F5;
+    color: #fff;
 }
 
 .sidebar .navigation a svg {

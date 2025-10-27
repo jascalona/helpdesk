@@ -97,13 +97,13 @@ function TableSubarea() {
                                 />
                             </div>
 
-                            <Button style={{ color: '#5A639C', fontSize: '20px', padding: '13px',marginLeft: '10px', background: '#BBFCFC' }}
+                            <Button style={{ color: '#fff', fontSize: '20px', padding: '13px',marginLeft: '10px', background: '#2733F5' }}
                                 type="button"
                                 icon="pi pi-file-excel"
                                 className="p-button-success"
                                 onClick={exportExcel}
                                 disabled={area.length === 0} // Desactivar si no hay datos
-                            ><FileDownloadIcon sx={{ fontSize: 15 }} /></Button>
+                            ><FileDownloadIcon sx={{ fontSize: 15, color: '#fff' }} /></Button>
                     </div>
                 </div>
 

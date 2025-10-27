@@ -7,6 +7,7 @@ import Herramientas from './resources/interfaces/herramientas/panel_setting';
 import General from './resources/interfaces/herramientas/organizacion/general_2';
 import Area from './resources/interfaces/herramientas/organizacion/area';
 import Subarea from './resources/interfaces/herramientas/organizacion/subarea';
+import Empresa from './resources/interfaces/herramientas/organizacion/empresa';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Estructura />} >
           <Route path='herramientas' element={<Herramientas />} >
             <Route path='general' element={<General />} />
+            <Route path='empresa' element={<Empresa />}/>
             <Route path='area' element={<Area />} />
             <Route path='subarea' element={<Subarea />} />
 

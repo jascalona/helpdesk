@@ -9,6 +9,8 @@ import CreateEmpresa from './componentes/create_empresa';
 import ListEmpresas from './componentes/crad_empresas';
 import { Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
+import BasicPie from './componentes/Charts/ChartPie'
+
 
 // Definición del Icono (Mejor usar un componente separado)
 const StepIcon: React.FC = () => (
@@ -53,13 +55,8 @@ const general: React.FC = () => {
 
             <div className="referral-program-container">
                 <div className="referral-header">
-                    <h2>Diseño Organizacional</h2>
+                    <h2>Diseño de Empresa</h2>
                     <p>Administre, diseñe y observe los distintos recursos de helpdesk pone a su disposicion para gestionar los recursos de su organizacion.</p>
-                </div>
-
-                {/* Bloque de Estadísticas */}
-                <div className="stats-grid">
-                    <CardResumen />
                 </div>
 
                 <div className="content-sections">
@@ -72,34 +69,52 @@ const general: React.FC = () => {
 
                     {/* Sección List empresas */}
                     <div className="how-to-use-section">
-                        <ListEmpresas />
-
+                        <BasicPie width={320} height={320} />
                     </div>
                 </div>
 
+                <ListEmpresas />
+
+
+
                 {/* Bloque Otros Programas */}
+                <br />
                 <div className="other-programs">
                     <h2>Otros funciones</h2>
                     <div className="program-cards-grid">
 
-                        <div className="program-card">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Area" className="program-image" />
-                            <p><strong>Crear Area:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
-                            <Link to={"/herramientas/area"} className="read-more">Leer Más →</Link>
-                        </div>
+                        <Link to={"/herramientas/empresa"} >
+                            <div className="program-card">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Area" className="program-image" />
+                                <p><strong>Crear Empresa:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
 
-                        <div className="program-card">
-                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Sub-area" className="program-image" />
-                            <p><strong>Crear Sub-area:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
-                            <Link to={"/herramientas/subarea"} className="read-more">Leer Más →</Link>
-                        </div>
+                            </div>
+                        </Link>
+
+
+                        <Link to={"/herramientas/area"} >
+                            <div className="program-card">
+                                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Area" className="program-image" />
+                                <p><strong>Crear Area:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
+
+                            </div>
+                        </Link>
+
+                        <Link to={"/herramientas/subarea"} >
+                            <div className="program-card">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Sub-area" className="program-image" />
+                                <p><strong>Crear Sub-area:</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, beatae!</p>
+                                Leer Más →
+                            </div>
+                        </Link>
 
 
                         <div className="rocket-card">
-                            <a href="#"  className="join-rocket-program">Nuevo Componente <strong> +</strong></a>
+                            <a href="#" className="join-rocket-program">Nuevo Componente <strong> +</strong></a>
                         </div>
                     </div>
                 </div>
+
             </div>
             <br /><br />
         </>

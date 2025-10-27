@@ -94,22 +94,22 @@ function TableArea() {
             <div className="table-empresa">
                 <div className="options">
                     <div className="group-btn">
-                            <div className="p-input-icon-left" >
-                                <i className="pi pi-search" />
-                                <InputText style={{ background: '#fffffff6', border: 'solid 1px #7776b352', padding: '13px', borderRadius: 5, color: '#333', width: '300px', outline: 'none' }}
-                                    value={globalFilterValue}
-                                    onChange={onGlobalFilterChange}
-                                    placeholder="Buscar..."
-                                />
-                            </div>
+                        <div className="p-input-icon-left" >
+                            <i className="pi pi-search" />
+                            <InputText style={{ background: '#fffffff6', border: 'solid 1px #7776b352', padding: '13px', borderRadius: 5, color: '#333', width: '300px', outline: 'none' }}
+                                value={globalFilterValue}
+                                onChange={onGlobalFilterChange}
+                                placeholder="Buscar..."
+                            />
+                        </div>
 
-                            <Button style={{ color: '#5A639C', fontSize: '20px', padding: '13px',marginLeft: '10px', background: '#BBFCFC' }}
-                                type="button"
-                                icon="pi pi-file-excel"
-                                className="p-button-success"
-                                onClick={exportExcel}
-                                disabled={area.length === 0} // Desactivar si no hay datos
-                            ><FileDownloadIcon sx={{ fontSize: 15 }} /></Button>
+                        <Button style={{ color: '#fff', fontSize: '20px', padding: '13px', marginLeft: '10px', background: '#2733F5' }}
+                            type="button"
+                            icon="pi pi-file-excel"
+                            className="p-button-success"
+                            onClick={exportExcel}
+                            disabled={area.length === 0} // Desactivar si no hay datos
+                        ><FileDownloadIcon sx={{ fontSize: 15, color: '#fff' }} /></Button>
                     </div>
                 </div>
 
@@ -129,6 +129,7 @@ function TableArea() {
                     <Column field="nb_area" header="Nm Area"></Column>
                     <Column field="fe_registro" header="Fe Registro"></Column>
                     <Column field="co_empresa" header="RIF"></Column>
+                    <Column field="st_area" header="Estado"></Column>
                     <Column field="st_area" header="Estado"></Column>
 
                 </DataTable>

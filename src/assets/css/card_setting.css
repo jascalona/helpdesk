@@ -45,7 +45,7 @@ a{
     margin-right: 12px;
     border: 2px solid #f0f0f0;
     background: var(--bg-hover);
-    color: #555;
+    color: #fff;
 }
 
 .user-details {
@@ -100,7 +100,7 @@ a{
 
 .apply-button {
     background-color: #ffffff;
-    color: var(--primary-color);
+    color: 050B70;
     /* Color del borde */
     border: 1px solid var(--text-color-dark);
     /* Borde azul */
