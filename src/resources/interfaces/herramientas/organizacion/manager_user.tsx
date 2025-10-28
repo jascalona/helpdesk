@@ -19,13 +19,21 @@ function ManagerUser() {
                     </div>
                 </div>
 
-                <div className="gallery-users">
-                    <CardUser id='1' users='10' name='QA'/>
-                    <CardUser id='2' users='4' name='QA'/>
-                    <CardUser id='3' users='3' name='QA'/>
-                    <CardUser id='4' users='1' name='QA'/>
-                    
+                <div className="content-sections">
+
+
+                    <div className="gallery-users">
+                        <CardUser id='1' users='10' name='QA' />
+                        <CardUser id='2' users='4' name='QA' />
+                        <CardUser id='3' users='3' name='QA' />
+                        <CardUser id='4' users='1' name='QA' />
+
+                    </div>
+
+                    sudshgdhsghdgsdg
+
                 </div>
+
 
             </div>
         </>

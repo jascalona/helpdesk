@@ -46,24 +46,59 @@
 /**********CARD USERS***********/
 .gallery-users {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 20px;
+    gap: 10px;
+}
+
+.card-metric {
+    background-color: #2e2a4a;
+    color: #ffffff;
     padding: 20px;
+    border-radius: 12px;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
+    background-size: cover;
+    background-position: center;
+    height: 130px;
 }
 
-.card-users {
-    border: solid 1px #66666654;
-    padding: 10px;
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
 }
 
-.card-users .icon-users{
-    background: rebeccapurple;   
-    width: ;
+.icon-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 790px) {
+.card-body{
+    padding: 5px 10px;
+}
+
+.metric-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ffff;
+}
+
+.metric-name {
+    font-size: 1rem;
+    color: #d1cbe7;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+@media (min-width: 1100px) {
     .gallery-users{
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-
