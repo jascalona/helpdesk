@@ -1,42 +1,30 @@
 import PersonIcon from '@mui/icons-material/Person';
 import '../../../../assets/css/manager_user.css';
 import '../../../../assets/css/section_general.css'
+
+
+//COMPONENTES
 import CardUser from './componentes/card_user';
+import TabsUser from './componentes/Tabs_user';
+
 
 function ManagerUser() {
     return (
         <>
-            <div className='referral-program-container'>
-                <div className="container-manager">
-                    <div className="init-user">
-                        <span className='icon-user'>
-                            <PersonIcon sx={{ fontSize: 40 }} />
-                        </span>
-                        <div>
-                            <p>Jose Escalona</p>
-                            <small>Administrator</small>
-                        </div>
-                    </div>
+
+            <div className="referral-program-container">
+                <div className="referral-header">
+                    <h2>Gestion Usuarios</h2>
+                    <p>Administre, diseñe y observe los distintos recursos de helpdesk pone a su disposicion para gestionar los recursos de su organizacion.</p>
                 </div>
 
-                <div className="content-sections">
+                <TabsUser />
 
-
-                    <div className="gallery-users">
-                        <CardUser id='1' users='10' name='QA' />
-                        <CardUser id='2' users='4' name='QA' />
-                        <CardUser id='3' users='3' name='QA' />
-                        <CardUser id='4' users='1' name='QA' />
-
-                    </div>
-
-                    sudshgdhsghdgsdg
-
-                </div>
 
 
             </div>
+            <br /><br />
         </>
-    )
+    );
 }
 export default ManagerUser

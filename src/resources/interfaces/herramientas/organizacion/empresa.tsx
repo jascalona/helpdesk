@@ -22,33 +22,10 @@ const StepIcon: React.FC = () => (
 );
 
 
-// 2. Componente principal en TSX
+// Componente principal en TSX
 const general: React.FC = () => {
     // Referencia para acceder al elemento input del código
     const codeInputRef = useRef<HTMLInputElement>(null);
-    // Estado para mostrar confirmación de copiado
-    const [copyStatus, setCopyStatus] = useState<'COPIAR' | '¡COPIADO!' | 'Error'>('COPIAR');
-
-    // Función para manejar el evento de copiado
-    const handleCopy = useCallback(async () => {
-        if (codeInputRef.current) {
-            try {
-                // Seleccionar y copiar el texto del input
-                codeInputRef.current.select();
-                codeInputRef.current.setSelectionRange(0, 99999);
-                await navigator.clipboard.writeText(codeInputRef.current.value);
-
-                // Actualizar estado para mostrar confirmación
-                setCopyStatus('¡COPIADO!');
-                setTimeout(() => setCopyStatus('COPIAR'), 2000); // Volver al estado original después de 2s
-
-            } catch (err) {
-                console.error('Error al intentar copiar: ', err);
-                setCopyStatus('Error');
-                setTimeout(() => setCopyStatus('COPIAR'), 3000);
-            }
-        }
-    }, []);
 
     return (
         <>

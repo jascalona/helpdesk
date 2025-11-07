@@ -44,61 +44,208 @@
 }
 
 /**********CARD USERS***********/
-.gallery-users {
-    display: grid;
-    gap: 10px;
+.gallery-cards {
+    border: solid 1px;
+    padding: 10px;
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    overflow: auto;
 }
 
-.card-metric {
-    background-color: #2e2a4a;
-    color: #ffffff;
+.gallery-cards {
+    scrollbar-width: thin;
+    scrollbar-color: #3f51b5 #f0f0f0;
+}
+
+::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo claro o transparente */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f51b5; /* Color del pulgar moderno */
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/* --- ESTILOS DE LA TARJETA PRINCIPAL --- */
+.user-card {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0; /* Borde gris claro */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
     padding: 20px;
-    border-radius: 12px;
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.4),
-        inset 0 0 10px rgba(255, 255, 255, 0.05);
-    background-size: cover;
-    background-position: center;
-    height: 130px;
+    width: 100%;
+    max-width: 350px; /* Ancho típico de una card */
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif; /* Fuente estándar, usa la que estés usando */
 }
 
+/* --- SECCIÓN DEL ENCABEZADO (AVATAR Y NOMBRE) --- */
 .card-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.icon-container {
-    background-color: rgba(255, 255, 255, 0.15);
-    padding: 8px;
-    border-radius: 8px;
+.header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: 600; /* Semi-bold */
+    color: #333;
+    margin: 0 0 4px 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.card-body{
-    padding: 5px 10px;
+.verified-icon {
+    font-size: 16px !important;
+    color: #4CAF50; /* Verde de verificación */
+    margin-left: 5px;
+}
+
+.user-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: #555;
+    margin: 0;
+}
+
+.new-to-cadre {
+    color: #666;
+    font-style: italic;
+}
+
+/* --- RATING --- */
+.user-rating {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.star-icon {
+    color: #FFC107; /* Amarillo de estrella */
+    font-size: 18px !important;
+    margin-right: 4px;
+}
+
+.rating-value {
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.review-count {
+    color: #999;
+}
+
+
+/* --- MÉTRICAS (UBICACIÓN Y TARIFA) --- */
+.card-metrics {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.metric-box {
+    text-align: left;
+    width: 50%;
+}
+
+.metric-box:last-child {
+    text-align: right;
+}
+
+.metric-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    margin: 0 0 2px 0;
 }
 
 .metric-value {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
     margin: 0;
-    color: #ffff;
 }
 
-.metric-name {
-    font-size: 1rem;
-    color: #d1cbe7;
-    margin-top: 5px;
-    font-weight: 400;
+/* --- ACCIONES (BOTONES) --- */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
-@media (min-width: 1100px) {
-    .gallery-users{
-        grid-template-columns: repeat(2, 1fr);
-    }
+.action-button {
+    flex: 1;
+    text-transform: capitalize !important; /* Estilo de botón de la imagen */
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    padding: 8px 10px !important;
+}
+
+.invite-btn {
+    background-color: #007bff !important; /* Azul de "Invite" */
+    color: #fff !important;
+    border: 1px solid #007bff !important;
+}
+
+.invite-btn:hover {
+    background-color: #0069d9 !important;
+}
+
+.liked {
+    color: #dc3545 !important; /* Rojo si está "Liked" */
+    border-color: #dc3545 !important;
+}
+
+.invited {
+    background-color: #e2f4ff !important; /* Fondo azul claro si está "Invited" */
+    color: #007bff !important;
+    border-color: #e2f4ff !important;
+}
+
+
+/* --- ESTADO (DISPONIBILIDAD) --- */
+.card-status {
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.status-unavailable {
+    color: #dc3545; /* Rojo para "May not be available" */
+    font-weight: 500;
+}
+
+.status-hired {
+    color: #666;
+}
+
+.status-hired-available {
+    color: #4CAF50; /* Verde para "Available" dentro de "Recently Hired" */
+    font-weight: 600;
 }
