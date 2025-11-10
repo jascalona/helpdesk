@@ -184,11 +184,14 @@
 
 /* --- ESTILOS DE LA TARJETA PRINCIPAL (FULL RESPONSIVE) --- */
 .gallery-cards {
-    display: grid;
+ display: grid;
     gap: 20px 60px; 
-    padding: 20px; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    
-    justify-content: center; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    max-width: 98%; 
+    margin-left: -10px;
+    margin-right: auto;
+
+    padding-right: 20px;
 }
 
 /* --- ESTILOS DE LA TARJETA INDIVIDUAL (Modificado) --- */

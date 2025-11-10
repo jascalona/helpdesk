@@ -10,10 +10,10 @@ import TabsUser from './componentes/Tabs_user';
 
 function ManagerUser() {
     const metricsData = [
-        { value: "2/3", label: "GESTION " },
-        { value: "$165", label: "AVERAGE OFFER" },
-        { value: "0", label: "UNPAID CONTRACTS" },
-        { value: "4", label: "MISSING ITINERARIES" },
+        { value: "20", label: "SOLICITUDES" },
+        { value: "10", label: "SOLICITUDES" },
+        { value: "5", label: "SOLICITUDES" },
+        { value: "104", label: "SOLICITUDES" },
     ];
 
     // 2. Datos para la información del proyecto inferior
