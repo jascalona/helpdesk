@@ -1,13 +1,13 @@
 :root {
-    --primary-color: #2733F5; /* Morado principal */
-    --secondary-color: #f0f0f7; /* Fondo claro */
+    --primary-color: #5158ea; /* Morado principal */
+    --secondary-color: rgba(51, 105, 153, 0.056);; /* Fondo claro */
     --text-color-dark: #444444;
     --text-color-light: #777;
     --border-color: #eee;
     --card-bg: #fff;
     --sidebar-bg: #fff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --bg-hover: #2733F5;
+    --bg-hover: #5158ea;
 }
 
 body {
@@ -81,7 +81,7 @@ body {
 }
 .sidebar .navigation a:hover,
 .sidebar .navigation li.active a {
-    background-color: #2733F5;
+    background-color: #5158ea;
     color: #fff;
 }
 

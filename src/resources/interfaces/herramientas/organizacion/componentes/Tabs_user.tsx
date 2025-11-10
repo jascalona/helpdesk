@@ -12,6 +12,12 @@ interface TabPanelProps {
 }
 
 function CustomTabPanel(props: TabPanelProps) {
+
+  //Consumo de endpoint
+
+
+
+
   const { children, value, index, ...other } = props;
 
   return (
@@ -45,13 +51,15 @@ function TabsUser() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="USUARIOS" {...a11yProps(0)} />
+          <Tab label="ACTIVIDADES" {...a11yProps(1)} />
+          <Tab label="ROLES Y PERMISOS" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <UserCard  />
+        <div className="gallery-cards">
+          <UserCard />
+        </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         Item Two

@@ -1,68 +1,115 @@
 import Avatar from './Avatar';
 import StarIcon from '@mui/icons-material/Star';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ModeEditOutlineRoundedIcon from '@mui/icons-material/ModeEditOutlineRounded';
 import AddIcon from '@mui/icons-material/Add';
 import { Button } from '@mui/material';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const UserCard: React.FC = () => {
 
-    const nb_nombre = "Nina Elle";
-    const nb_apellido = "(Nina ells)";
-    const rating = 4.3;
-    const subarea = "QA";
-    const isVerified = true;
-    const area = "Gestion de Servicios";
+interface Usuario {
+    coUsuario: string,
+    nbNombre: string,
+    nbApellido: string,
+    txEmail: string,
+    nucelular: string,
+    coarea: string
+}
 
-    const email = "j.escalona@sycom.com.ve";
+
+function UserCard() {
+    const [usuarios, setUsuarios] = useState<Usuario[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    const API_URL = "http://localhost:8080/basetomee/usuario/list";
+
+
+    useEffect(() => {
+        const fetchUsuarios = async () => {
+            try {
+                const response = await axios.get<Usuario[]>(API_URL);
+                setUsuarios(response.data);
+                setError(null);
+            } catch (err) {
+                console.error("Error al obtener los usuarios:", err);
+                setError("Error al cargar los datos de la API.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchUsuarios();
+    }, []);
+
+    if (loading) {
+        return <p>Cargando...</p>
+    }
+
+    if (error) {
+        return <p style={{ color: 'red' }}>{error}</p>
+    }
+
+    if (usuarios.length === 0) {
+        return <p>No hay registros disponibles para mostrar</p>
+    }
+
+
+    //<h2>Total de Registros: {usuarios.length}</h2>
+
     return (
-        <div className="user-card">
-            <div className="card-header">
+        <>
 
-                <Avatar name={nb_nombre} surname={nb_apellido} />
+            
+            {
+                usuarios.map((usuario) => (
 
-                <div className="header-info">
-                    <h2 className="user-name" style={{ marginLeft: '10px' }}>
-                        {nb_nombre} {isVerified && <CheckCircleIcon className="verified-icon" />}
-                        <span className="user-nickname">{nb_apellido}</span>
-                    </h2>
+                    <div className="user-card" key={usuario.nbNombre}>
+                        <div className="card-header">
 
-                    <div className="user-rating">
-                        <StarIcon className="star-icon" />
-                        <span className="rating-value">{rating.toFixed(1)}</span>
-                        <span className="review-count">({subarea})</span>
+                            <Avatar name={usuario.nbNombre} surname={usuario.nbApellido} />
+
+                            <div className="header-info">
+                                <h2 className="user-name" style={{ marginLeft: '10px' }}>
+                                    {usuario.nbNombre} 
+                                    <span className="user-nickname">{usuario.nbApellido} <CheckCircleIcon className="verified-icon" /></span>
+                                </h2>
+
+                                <div className="user-rating">
+                                    <StarIcon className="star-icon" />
+                                    <span className="rating-value">Sub-Area</span>
+                                    <span className="review-count">(QA)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="card-metrics">
+                            <div className="metric-box">
+                                <p className="metric-label">Info</p>
+                                <p className="metric-value">{usuario.txEmail}</p>
+                                <p className="metric-value">{usuario.nucelular}</p>
+                            </div>
+                            <div className="metric-box">
+                            </div>
+                        </div>
+
+                        <div className="card-actions">
+                            <Button
+                                variant="outlined"
+                                startIcon={<ModeEditOutlineRoundedIcon />}
+                                className={'action-button'}
+                            >
+                                Editar
+                            </Button>
+
+                        </div>
+
+                        <span style={{ textAlign: 'center' }}>Gestion de Servicios</span>
                     </div>
-                </div>
-            </div>
-
-            <div className="card-metrics">
-                <div className="metric-box">
-                    <p className="metric-label">Area</p>
-                    <p className="metric-value">{area}</p>
-                </div>
-                <div className="metric-box">
-                </div>
-            </div>
-
-            <div className="card-actions">
-                <Button
-                    variant="outlined"
-                    startIcon={<FavoriteBorderIcon />}
-                    className={'action-button'}
-                >
-                    Favorito
-                </Button>
-                <Button
-                    variant="contained"
-                    startIcon={<AddIcon />}
-                    className={'action-button invite-btn'}
-                >
-                    Invite
-                </Button>
-            </div>
-
-            <span style={{textAlign: 'center'}}>{email}</span>
-        </div>
+                ))
+            }
+        </>
     );
 };
 

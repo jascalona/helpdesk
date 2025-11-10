@@ -34,7 +34,7 @@ function ArcDesign({ title, data }: ArcDesignProps) {
                         fontSize: 40,
                     },
                     [`& .${gaugeClasses.valueArc}`]: {
-                        fill: '#2733F5', // Color celeste claro
+                        fill: '#5158ea', // Color celeste claro
                     },
                     [`& .${gaugeClasses.referenceArc}`]: {
                         fill: theme.palette.text.disabled, 

@@ -43,23 +43,125 @@
     line-height: 1.2;
 }
 
-/**********CARD USERS***********/
-.gallery-cards {
-    border: solid 1px;
-    padding: 10px;
-    width: 90%;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    overflow: auto;
+/**********RESUMEN METRICAS***********//* -------------------------------------- */
+.summary-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    max-width: 100%;
 }
 
-.gallery-cards {
-    scrollbar-width: thin;
-    scrollbar-color: #3f51b5 #f0f0f0;
+.divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
 }
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    align-items: start;
+}
+
+.metric-item {
+    text-align: left;
+    padding-right: 20px;
+    position: relative;
+}
+
+.metric-item h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.metric-item small {
+    display: block;
+    font-size: 10px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.metric-item.has-separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background-color: #eee;
+}
+
+@media (max-width: 768px) {
+    .summary-card {
+        padding: 15px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 10px;
+    }
+
+    .metric-item {
+        padding-right: 0;
+    }
+
+    .metric-item.has-separator::after {
+        display: none;
+    }
+}
+
+.info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px 10px;
+}
+
+.info-item {
+    flex: 1 1 180px;
+    min-width: 150px;
+    max-width: 300px;
+}
+
+.info-item small {
+    display: block;
+    font-size: 9px;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.info-item span {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+}
+
+@media (max-width: 480px) {
+    .info-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .info-item {
+        flex: 1 1 100%;
+    }
+}
+
+
+/**********CARD USERS***********/
+
 
 ::-webkit-scrollbar {
   width: 8px; 
@@ -80,19 +182,40 @@
   background: #555;
 }
 
+/* --- ESTILOS DE LA TARJETA PRINCIPAL (FULL RESPONSIVE) --- */
+.gallery-cards {
+    display: grid;
+    gap: 20px 60px; 
+    padding: 20px; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    
+    justify-content: center; 
+}
 
-/* --- ESTILOS DE LA TARJETA PRINCIPAL --- */
+/* --- ESTILOS DE LA TARJETA INDIVIDUAL (Modificado) --- */
 .user-card {
     background-color: #fff;
     border-radius: 8px;
-    border: 1px solid #e0e0e0; /* Borde gris claro */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     padding: 20px;
     width: 100%;
-    max-width: 350px; /* Ancho típico de una card */
+    /* max-width eliminado para que el grid gestione el ancho */
     display: flex;
     flex-direction: column;
-    font-family: Arial, sans-serif; /* Fuente estándar, usa la que estés usando */
+    font-family: Arial, sans-serif; 
+}
+
+/* --- AJUSTES PARA DISPOSITIVOS MUY PEQUEÑOS (Opcional) --- */
+@media (max-width: 600px) {
+    .gallery-cards {
+        gap: 15px;
+        padding: 10px; 
+    }
+
+    .card-actions {
+        flex-direction: column; /* Apilar botones */
+        gap: 8px;
+    }
 }
 
 /* --- SECCIÓN DEL ENCABEZADO (AVATAR Y NOMBRE) --- */
@@ -109,7 +232,7 @@
 
 .user-name {
     font-size: 18px;
-    font-weight: 600; /* Semi-bold */
+    font-weight: 600;
     color: #333;
     margin: 0 0 4px 0;
     display: flex;
@@ -118,7 +241,7 @@
 
 .verified-icon {
     font-size: 16px !important;
-    color: #4CAF50; /* Verde de verificación */
+    color: #4CAF50;
     margin-left: 5px;
 }
 
@@ -143,7 +266,7 @@
 }
 
 .star-icon {
-    color: #FFC107; /* Amarillo de estrella */
+    color: #FFC107;
     font-size: 18px !important;
     margin-right: 4px;
 }
@@ -200,14 +323,14 @@
 
 .action-button {
     flex: 1;
-    text-transform: capitalize !important; /* Estilo de botón de la imagen */
+    text-transform: capitalize !important;
     border-radius: 4px !important;
     font-weight: 500 !important;
     padding: 8px 10px !important;
 }
 
 .invite-btn {
-    background-color: #007bff !important; /* Azul de "Invite" */
+    background-color: #007bff !important;
     color: #fff !important;
     border: 1px solid #007bff !important;
 }
@@ -217,12 +340,12 @@
 }
 
 .liked {
-    color: #dc3545 !important; /* Rojo si está "Liked" */
+    color: #dc3545 !important;
     border-color: #dc3545 !important;
 }
 
 .invited {
-    background-color: #e2f4ff !important; /* Fondo azul claro si está "Invited" */
+    background-color: #e2f4ff !important;
     color: #007bff !important;
     border-color: #e2f4ff !important;
 }
@@ -237,7 +360,7 @@
 }
 
 .status-unavailable {
-    color: #dc3545; /* Rojo para "May not be available" */
+    color: #dc3545;
     font-weight: 500;
 }
 
@@ -246,6 +369,6 @@
 }
 
 .status-hired-available {
-    color: #4CAF50; /* Verde para "Available" dentro de "Recently Hired" */
+    color: #4CAF50;
     font-weight: 600;
 }

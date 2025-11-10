@@ -103,7 +103,7 @@ function TableArea() {
                             />
                         </div>
 
-                        <Button style={{ color: '#fff', fontSize: '20px', padding: '13px', marginLeft: '10px', background: '#2733F5' }}
+                        <Button style={{ color: '#fff', fontSize: '20px', padding: '13px', marginLeft: '10px', background: '#5158ea' }}
                             type="button"
                             icon="pi pi-file-excel"
                             className="p-button-success"
