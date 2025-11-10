@@ -64,6 +64,9 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     align-items: start;
+    background: rgba(51, 85, 153, 0.065);
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .metric-item {

@@ -1,10 +1,8 @@
-import PersonIcon from '@mui/icons-material/Person';
 import '../../../../assets/css/manager_user.css';
 import '../../../../assets/css/section_general.css'
 
 
 //COMPONENTES
-import CardUser from './componentes/card_user';
 import TabsUser from './componentes/Tabs_user';
 
 
@@ -38,7 +36,7 @@ function ManagerUser() {
                     <div className="metrics-grid">
                         {metricsData.map((item, index) => (
                             // El último item no lleva el separador vertical en la vista de escritorio
-                            <div key={index} className={`metric-item ${index < metricsData.length - 1 ? 'has-separator' : ''}`}>
+                            <div key={index}  className={`metric-item ${index < metricsData.length - 1 ? 'has-separator' : ''}`}>
                                 <h3>{item.value}</h3>
                                 <small>{item.label}</small>
                             </div>
