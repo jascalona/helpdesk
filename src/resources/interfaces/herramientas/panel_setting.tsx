@@ -4,6 +4,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import GridViewIcon from '@mui/icons-material/GridView';
 import AppsOutageIcon from '@mui/icons-material/AppsOutage';
 import GroupsIcon from '@mui/icons-material/Groups';
+import Avatar from '@mui/material/Avatar';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 
 function Herramientas() {
@@ -15,18 +18,44 @@ function Herramientas() {
     const isBaseRoute = location.pathname.endsWith('/herramientas') || location.pathname.endsWith('/herramientas/');
 
     // Nota: Si tu ruta base fuera solo '/', usarías: location.pathname === '/' 
-
+    const pages = "Herramientas"
     return (
         <>
             {/* 3. Bloque condicional: Solo se renderiza si estamos en la ruta base /herramientas */}
             {isBaseRoute && (
                 <>
                     <header className="main-header">
-                        <div className="breadcrumbs">
-                            <span>Pagina / Herramientas</span>
-                            <h2>Panel de Herramientas</h2>
+                        <div className="header-nav">
+                            <a href="#" className="back-link">
+                                <span className="icon-back"><ArrowBackIosIcon sx={{ fontSize: 13 }} /></span>
+                                <span>Pagina \ {pages}</span>
+                            </a>
+                        </div>
+
+                        <div className="header-actions-group">
+
+                            <div className="icon-action notification-icon">
+                                <NotificationsIcon /><span className="badge">2</span>
+                            </div>
+
+                            {/* Botones de acción */}
+                            <button className="action-button team-button">
+                                <span className="icon-team">👤</span>
+                                Team
+                            </button>
+                            <button className="action-button project-button">
+                                <span className="icon-plus">+</span>
+                                Project
+                            </button>
+
+                            {/* Avatar del usuario */}
+                            <div className="sesion-user">
+                                <Avatar />
+                            </div>
                         </div>
                     </header>
+
+                    <h2>Panel de Herramientas</h2>
 
 
                     <div className="container-card-setting">
